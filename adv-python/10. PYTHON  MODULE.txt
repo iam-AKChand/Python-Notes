@@ -1,0 +1,230 @@
+----------------------------------------------------------------------------------------------------
+		PYTHON  MODULE
+----------------------------------------------------------------------------------------------------
+Working with Python Module:
+
+Example 1:
+--------------------
+Ex:  MyProg1.py
+def MyFun():
+    print("Welcome to Modularity")
+    print("Modularity Programming")
+    print("Thank U")
+    return()
+
+Ex:  MyProg2.py
+import MyProg1
+MyProg1.MyFun()
+
+o/p=
+Welcome to Modularity
+Modularity Programming
+Thank U
+
+Example 2:
+--------------------
+Ex:  MyProg1.py
+def MyFun1():
+    print("Welcome to Modularity")
+    print("Modularity Programming")
+    print("Thank U")
+    return()
+def MyFun2():
+    print("Just a Module")
+    print("Easy Program")
+    print("Bye")
+    return()
+
+Ex:  MyProg2.py
+def MyFun3():
+    print("From MyProg2")
+    return()
+def MyFun4():
+    print("From MyProg2")
+    return()
+        
+Ex:  MyProg3.py
+import MyProg1,MyProg2
+MyProg1.MyFun1()
+MyProg2.MyFun4()
+
+o/p=
+Welcome to Modularity
+Modularity Programming
+Thank U
+From MyProg2
+
+Example 3:
+--------------------
+Ex:  MyProg1.py
+def MyFun1():
+    print("Welcome to Modularity")
+    print("Modularity Programming")
+    print("Thank U")
+    return()
+def MyFun2():
+    print("Just a Module")
+    print("Easy Program")
+    print("Bye")
+    return()
+
+Ex:  MyProg2.py
+def MyFun3():
+    print("From MyProg2")
+    return()
+def MyFun4():
+    print("From MyProg2")
+    return()
+        
+Ex:  MyProg3.py
+import MyProg1 as MP,MyProg2 as cp
+MP.MyFun2()
+cp.MyFun3()
+
+o/p=
+Just a Module
+Easy Program
+Bye
+From MyProg2
+
+The from ..........import statement
+Example :
+EX:1   MyProg1.py
+a=10;b=20;c=30
+print(a+b)#30
+print(c+a)#40
+
+EX:2   MyProg2.py
+from MyProg1 import a
+print(a)#10
+print(b)#20
+
+Ex:3   MyProg3.py
+from MyProg1 import a,b
+print(a)#10
+print(b)#20
+
+Example :
+Ex:1   Myprog1.py
+def Add(a,b):
+    print(a+b)
+def Sub(a,b):
+    print(a-b)
+def Mult(a,b):
+    print(a*b)
+def Div(a,b):
+    print(a/b)
+def FDiv(a,b):
+    print(a//b)
+    
+Ex:2   MyProg2.py
+from MyProg1 import Add,Div
+print(Add(3,6))#9
+print(Div(6,2))#3.0
+print(Sub(5,2))#NameError: name 'Sub' is not defined
+
+Using WILDCARD imports  (from......import *)
+Example :
+Ex:1   MyProg1.py
+def Add(a,b):
+    print(a+b)
+def Sub(a,b):
+    print(a-b)
+def Mult(a,b):
+    print(a*b)
+def Div(a,b):
+    print(a/b)
+def FDiv(a,b):
+    print(a//b)
+
+Ex:2   MyProg2.py
+from MyProg1 import*
+print(Add(3,6))#9
+print(Sub(5,2))#3
+print(Div(6,2))#3.0
+print(Mult(9,7))#63
+print(FDiv(8,3))#2
+
+Underscores :
+def Builtins():
+    """Hello Python world"""
+    print(Builtins.__dict__)
+    print(__builtins__)
+    print(__doc__)
+    print(Builtins.__doc__)
+    print(__file__)
+    print(__package__)
+    print(__name__)
+Builtins()
+
+The  dir ( )  Function:
+Ex:
+x=100
+print(dir(x))
+o/p=
+['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
+
+Ex:
+import math
+print(dir(math))
+o/p=
+['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'pi', 'pow', 'radians', 'remainder', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']
+
+Find Files On disk::::
+Ex:
+import os
+os.getcwd()
+import sys
+print(sys.path)
+o/p=
+['C:\\Users\\hp', 'C:\\Anaconda\\python37.zip', 'C:\\Anaconda\\DLLs', 'C:\\Anaconda\\lib', 'C:\\Anaconda', '', 'C:\\Anaconda\\lib\\site-packages', 'C:\\Anaconda\\lib\\site-packages\\win32', 'C:\\Anaconda\\lib\\site-packages\\win32\\lib', 'C:\\Anaconda\\lib\\site-packages\\Pythonwin', 'C:\\Anaconda\\lib\\site-packages\\IPython\\extensions', 'C:\\Users\\hp\\.ipython']
+
+Creating a Package:
+NOTE=
+1. Create a directory or Folder and provide a name (MyPackage)
+2. open notepad to save with __init__.py file in the directory (python recognised as package)
+3. Create a python filr in that named MyDemo.py.
+
+Example:    MyDemo.py
+def MyFun():
+     print("Welcome to Package")
+     print("Packages are dirs and folders")
+MyFun()
+
+Executing a Module from a package :  (if package is in Python file where it is installed )
+
+>>> import os
+>>> os.getcwd()
+'C:\\Python 3.7.3'
+>>> import MyPackage.MyDemo
+Welcome to Package
+Packages are dirs and folders
+>>> MyPackage.MyDemo.MyFun()
+Welcome to Package
+Packages are dirs and folders
+>>> import MyPackage.MyDemo as NiT
+>>> NiT.MyFun()
+Welcome to Package
+Packages are dirs and folders
+>>> from MyPackage.MyDemo import MyFun
+>>> MyFun()
+Welcome to Package
+Packages are dirs and folders
+>>> 
+
+Executing a Module from a package :  ( if package is on dektop )
+
+C:\Users\hp>cd desktop
+
+C:\Users\hp\Desktop>cd MyPackage
+
+C:\Users\hp\Desktop\MyPackage>python Package.py
+welcome to PYTHON
+
+C:\Users\hp\Desktop\MyPackage>cd SubPackage
+
+C:\Users\hp\Desktop\MyPackage\Subpackage>python Module1.py
+this is subpackage
+
+Executing a Module from a sub-package :  
+

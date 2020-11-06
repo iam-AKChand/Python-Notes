@@ -1,0 +1,363 @@
+-------------------------------------------------------------------------------------------------------------------------	
+		WORKING  WITH  PYTHON  FILE
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+1. Open a file
+2. Read a file
+3. Append a file
+4. Close a file
+
+File Different Modes
+---------------------------------------
+   Modes		Description
+    r		opens a file for reading only
+   'b'		opens in binary mode
+   r+		opens a file for both reading and writing
+   rb+		opens a file for both reading and writing in                                    binary format
+    w		openws file for writing only
+    a  		opens a file for appending
+    a+		opens a file for both appending and reading
+    't'		opens in text mode (default )
+    x		opens a file for exclusive creation. If file already                                    exists Operation fails
+
+File Object Attributes
+---------------------------------------
+  Attribute	Description
+  file.closed	returns True if file is closed, otherwise false
+  file.mode	returns Access mode
+  file.name	returns name of file
+
+Method - 1  ( Example )      [ save this with Books.py ]   
+'''''''''''''''''''''''''''''''''''''''''
+FileObj=open("Books.txt")
+print(FileObj.name)#Books.txt
+print(FileObj.mode)#r
+print(FileObj.closed)#False
+
+Method - 2  ( Example )
+''''''''''''''''''''''''''''''''''''''''''
+FileObj=open("Books.txt",mode='r',encoding='utf-8')
+print(FileObj.name)#Books.txt
+print(FileObj.mode)#r
+print(FileObj.closed)#False
+
+[ 'utf-8' ---  Unicode Transformation Format - 8 is 1 byte=8bits ]
+
+Method - 3  ( Example )
+''''''''''''''''''''''''''''''''''''''''''
+try:
+    FileObj=open("Books.txt",mode='r',encoding='utf-8')
+    print(FileObj.name)#Books.txt
+    print(FileObj.mode)#r
+    print(FileObj.closed)#False
+finally:
+    print("Following Block success")#Following Block success
+
+Method - 4  ( Example )
+''''''''''''''''''''''''''''''''''''''''''
+try:
+    FileObj=open("Books.txt",mode='r',encoding='utf-8')
+    print(FileObj.name)#Books.txt
+    print(FileObj.mode)#r
+    print(FileObj.closed)#False
+except IOError:
+    print("Sorry File not Existed")
+finally:
+    print("Following Block success")#Following Block success
+
+Method - 5  ( Example )     [ best way to do this ]
+''''''''''''''''''''''''''''''''''''''''''
+try:
+    with open("Books.txt",mode='r',encoding='utf-8') as FileObj:
+         print(FileObj.name)#Books.txt
+         print(FileObj.mode)#r
+         print(FileObj.closed)#False
+except IOError:
+    print("Sorry File not Existed")
+finally:
+    print("Following Block success")#Following Block success
+
+                            WRITING  TO  A  FILE :
+                           ''''''''''''''''''''''''''''''''''''''''
+Example :
+try:
+    with open("MyFile.txt",mode='w',encoding='utf-8')as MyFile:
+        MyFile.write("Welcome to Python")
+        MyFile.write("Thank You")
+        print("File Created successfully")
+except IOError:
+    print("Sorry Unable to create")
+finally:
+    print("Finally bLock get executed")
+    print(MyFile.closed)
+o/p=
+ File Created successfully
+Finally bLock get executed
+True
+
+Example : Creating a File (Relative Path) :
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+try:
+    with open("C:\\Anaconda\\PROGRAMS BY ME\BigData.txt",mode='w',encoding='utf-8')as MyFile:
+        MyFile.writelines("""Welcome to Python. 
+        It is a good programming.
+        It supports ML, DL, AI\n""")
+        MyFile.write("Thank You")
+        print("File Created successfully")
+except IOError:
+    print("Sorry Unable to create")
+finally:
+    print("Finally bLock get executed")
+    print(MyFile.closed)
+o/p=
+File Created successfully
+Finally bLock get executed
+True
+
+Example : Creating a File (Absolute Path) :
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+try:
+    with open("C:\\Users\\hp\\Desktop\\BigData\BigData.txt",mode='w',encoding='utf-8')as MyFile:
+        MyFile.writelines("""Welcome to Python. 
+        It is a good programming.
+        It supports ML, DL, AI\n""")
+        MyFile.write("Thank You")
+        print("File Created successfully@Desktop")
+except IOError:
+    print("Sorry Unable to create")
+finally:
+    print("Finally bLock get executed")
+    print(MyFile.closed)
+o/p=
+File Created successfully@Desktop
+Finally bLock get executed
+True
+
+Example : Creating a File using Unicode data :
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+try:
+    with open("C:\\Users\\hp\\Desktop\\BigData\DataSet.txt",mode='w',encoding='utf-8')as MyFile:
+        MyFile.writelines("""?????? ?????? ?????? ?????? ?????? ?????? ??????\n""")
+        MyFile.write("??????? ??????? ??????? ??????? ???????\n")
+        MyFile.write("Thank U")
+        print("File Created successfully@Desktop")
+except IOError:
+    print("Sorry Unable to create")
+finally:
+    print("Finally bLock get executed")
+    print(MyFile.closed)
+o/p=
+File Created successfully@Desktop
+Finally bLock get executed
+True
+
+Example : Creating a File without UTF-8 :
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+try:
+    with open("C:\\Users\\hp\\Desktop\\BigData\Data_Set.txt",mode='x')as MyFile:
+        MyFile.writelines("""?????? ?????? ?????? ?????? ?????? ?????? ??????\n""")
+        MyFile.write("??????? ??????? ??????? ??????? ???????\n")
+except IOError:
+    print("Sorry Unable to create")
+finally:
+    print("Finally bLock get executed")
+o/p=
+Sorry Unable to create
+Finally bLock get executed
+
+                         ......................................................
+                             READING  FROM  A  FILE
+                        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+........................................................................................................................
+Welcome to Python. 
+        It is a good programming.
+        It supports ML, DL, AI
+Thank You
+[ we save this in BigData.txt in desktop in BigData file ]
+.........................................................................................................................
+1. read ( ) method :    Example :
+    ''''''''''''''''''''''''''''     '''''''''''''''''
+try:
+    with open("BigData.txt",mode='r',encoding='utf-8')as BigData:
+        Chars=BigData.read(5)
+        print(Chars)
+        print("File read successfully from Relativepath")
+except IOError:
+    print("Sorry Unable to Read")
+finally:
+    print("Finally bLock get executed")
+o/p=
+Welco
+File read successfully from Relativepath
+Finally bLock get executed
+
+Example :   Using Size   ( Absolute Path ) :
+''''''''''''''''     '''''''''''''''''''   ''''''''''''''''''''''''''''
+try:
+    with open("BigData.txt",mode='r',encoding='utf-8')as BigData:
+        Chars=BigData.read(5)
+        print(Chars)
+        Chars=BigData.read(5)
+        print(Chars)
+        print("File read successfully from Relativepath")
+except IOError:
+    print("Sorry Unable to Read")
+finally:
+    print("Finally bLock get executed")
+o/p=
+Welco
+me to
+File read successfully from Relativepath
+Finally bLock get executed
+
+Example :   (  Display all Lines and characters  )
+''''''''''''''''     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+try:
+    with open("BigData.txt",mode='r',encoding='utf-8')as BigData:
+        print(BigData.read())
+        print("File read successfully from Relativepath")
+except IOError:
+    print("Sorry Unable to Read")
+finally:
+    print("Finally bLock get executed")
+o/p=
+Welcome to Python. 
+        It is a good programming.
+        It supports ML, DL, AI
+Thank You
+File read successfully from Absolute path
+Finally bLock get executed
+
+Example :  ( Display number of characters using len function )
+''''''''''''''''    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+try:
+    with open("BigData.txt",mode='r',encoding='utf-8')as BigData:
+        AllChars=BigData.read()
+        print("Numbers of characters in a file:",len(AllChars))
+        print("Sorry Unable to Read from Absolute path")
+except IOError:
+    print("Sorry Unable to Read")
+finally:
+    print("Finally bLock get executed")
+o/p=
+Numbers of characters in a file: 94
+Sorry Unable to Read from Absolute path
+Finally bLock get executed
+
+Example : readline( )  &  readlines ( ) :
+'''''''''''''''''   ''''''''''''''''''''''''''''''''''''''''''''''
+try:
+    with open("BigData.txt",mode='r',encoding='utf-8')as BigData:
+        print(BigData.readline())
+        print(BigData.readlines())
+        print("File read successfully")
+except IOError:
+    print("Sorry Unable to Read")
+finally:
+    print("Finally bLock get executed")
+o/p=
+  Welcome to Python. 
+
+['        It is a good programming.\n', '        It supports ML, DL, AI\n', 'Thank You']
+File read successfully
+Finally bLock get executed
+
+Example :  (Display Numbers of lines in a file )
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+try:
+    with open("BigData.txt",mode='r',encoding='utf-8')as BigData:
+        Lines=BigData.readlines()
+        print("Number of Lines in a file:",len(Lines))
+        print("File read successfully from Absolute path")
+except IOError:
+    print("Sorry Unable to Read")
+finally:
+    print("Finally bLock get executed")
+o/p=
+Number of Lines in a file: 4
+File read successfully from Absolute path
+Finally bLock get executed
+
+Example :  ( Read a file using for-loop )
+'''''''''''''''''   ''''''''''''''''''''''''''''''''''''''''''''''''
+try:
+    with open("BigData.txt",mode='r',encoding='utf-8')as BigData:
+        for lines in BigData:
+            print(lines)
+except IOError:
+    print("Sorry Unable to Read")
+finally:
+    print("Finally bLock get executed")
+o/p=
+Welcome to Python. 
+
+        It is a good programming.
+
+        It supports ML, DL, AI
+
+Thank You
+Finally bLock get executed
+
+Appending a File :
+'''''''''''''''''''''''''''''''
+try:
+    with open("MyFile.txt",mode='a',encoding='utf-8')as MyFile:
+        MyFile.write("Adding Data to an Existing File\n")
+        MyFile.write("Good Bye\n")
+except IOError:
+    print("Sorry File Unable to create")
+finally:
+    print("Finally bLock get executed")
+o/p=
+
+
+File Cursor Position :
+'''''''''''''''''''''''''''''''''''
+1 . tell ( ) Method :
+     '''''''''''''''''''''''''''
+try:
+    with open("MyFile.txt",mode='r',encoding='utf-8')as MyFile:
+        print(MyFile.read(5))
+        print(MyFile.tell())
+        print(MyFile.read(9))
+        print(MyFile.tell())
+        print("File Read Successfully")
+except IOError:
+    print("Sorry File Unable to create")
+finally:
+    print("Finally bLock get executed")
+
+o/p=
+Welco
+5
+me to Pyt
+14
+File Read Successfully
+Finally bLock get executed
+
+2. seek ( ) Method :
+    '''''''''''''''''''''''''''''
+try:
+    with open("MyFile.txt",mode='r',encoding='utf-8')as MyFile:
+        print(MyFile.read(5))
+        print(MyFile.tell())
+        print(MyFile.read(9))
+        print(MyFile.tell())
+        MyFile.seek(0,0)
+        print(MyFile.read(3))
+        print(MyFile.tell())
+        print("File Read Successfully")
+except IOError:
+    print("Sorry File Unable to create")
+finally:
+    print("Finally bLock get executed")
+    
+o/p=
+Welco
+5
+me to Pyt
+14
+Wel
+3
+File Read Successfully
+Finally bLock get executed
+

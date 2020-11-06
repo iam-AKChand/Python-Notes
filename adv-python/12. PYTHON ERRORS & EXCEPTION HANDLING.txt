@@ -1,0 +1,544 @@
+-------------------------------------------------------------------------------------------------------------------------
+		PYTHON  EXCEPTIONS
+-------------------------------------------------------------------------------------------------------------------------
+Errors:
+Ex:
+print("Hello")#Hello
+print("Hello')#SyntaxError: EOL while scanning string literal
+print('Hello")#SyntaxError: EOL while scanning string literal
+print(Hello)#NameError: name 'Hello' is not defined
+print("123")#123
+print(123)#123
+priint("hello")#NameError: name 'priint' is not defined
+Print('hello')#NameError: name 'Print' is not defined
+Name="KS Raju"#No Output
+
+1. Syntax Error
+print("Hello')#SyntaxError: EOL while scanning string literal
+print('Hello")#SyntaxError: EOL while scanning string literal
+
+2. Logical Error
+x=10
+y=20
+z=x+y/2
+print(z)#20.0
+NOTE : Logical Error never shows error , only wrong outputs.
+
+3. Run-time Error:
+Ex:
+x=10
+printf(x)#NameError: name 'printf' is not defined
+
+Abnormal Termination:
+Ex: 1
+a=input("Enter any Number:")
+b=input("Enter any Number:")
+c=a/b
+print("The value is :",c)
+o/p=
+Enter any Number:8
+Enter any Number:4
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+
+Ex: 2
+a=int(input("Enter any Number:"))
+b=int(input("Enter any Number:"))
+c=a/b
+print("The value is :",c)
+o/p=
+Enter any Number:2
+Enter any Number:e
+ValueError: invalid literal for int() with base 10: 'e'
+
+Ex: 3
+a=int(input("Enter any Number:"))
+b=int(input("Enter any Number:"))
+c=a/b
+print("The value is :",c)
+o/p=
+Enter any Number:2
+Enter any Number:0
+ZeroDivisionError: division by zero
+
+Example : 1
+number=int(input("Enter Any Number Between 1-10:"))
+print("you are entered :",number)
+o/p=
+Enter Any Number Between 1-10:3
+you are entered : 3
+
+Enter Any Number Between 1-10:u
+ValueError: invalid literal for int() with base 10: 'u'
+-----------------------------------------
+Exception:   
+Syntax 1
+-------------------------------------------
+try:
+    Some Statements Here
+except:
+    Exception Handling
+---------------------------------------------
+NOTE----- not execute with SyntaxError and LogicalError
+............................................. 
+Example: 1   ( ValueError )
+.................................
+try:
+    number=int(input("Enter Any Number Between 1-10:"))
+    print("you are entered :",number)
+except ValueError:
+    print("Sorry Invalid Input")
+
+o/p=
+Enter Any Number Between 1-10:5
+you are entered : 5
+
+Enter Any Number Between 1-10:t
+Sorry Invalid Input
+
+-------------------------------
+Example:2    ( ValueError )
+.................................
+try:
+    a=int(input("Enter Any Number:"))
+    b=int(input("Enter Any Number:"))
+    c=a/b
+    print("The result is:",c)
+except ValueError:
+    print("Sorry Invalid Input")
+
+o/p=
+Enter Any Number:3
+Enter Any Number:4
+The result is: 0.75
+
+Enter Any Number:5
+Enter Any Number:e
+Sorry Invalid Input
+
+---------------------------------------
+Example:3   ( ValueError , ZeroDivisionError )
+.....................................
+try:
+    a=int(input("Enter Any Number:"))
+    b=int(input("Enter Any Number:"))
+    c=a/b
+    print("The result is:",c)
+except ValueError:
+    print("Sorry Invalid Input")
+except ZeroDivisionError:
+    print("b must not be ZERO")
+
+o/p=
+Enter Any Number:4
+Enter Any Number:2
+The result is: 2.0
+
+Enter Any Number:8
+Enter Any Number:t
+Sorry Invalid Input
+
+Enter Any Number:10
+Enter Any Number:0
+b must not be ZERO
+
+-----------------------------------------
+Example: 4    ( ValueError , Exception as arg )
+....................................................
+try:
+    a=int(input("Enter Any Number:"))
+    b=int(input("Enter Any Number:"))
+    c=a/b
+    print("The result is:",c)
+except ValueError:
+    print("Sorry Invalid Input")
+except Exception as arg:
+    print("Error:",arg)
+
+0/p=
+Enter Any Number:6
+Enter Any Number:3
+The result is: 2.0
+
+Enter Any Number:8
+Enter Any Number:0
+Error: division by zero
+
+Enter Any Number:6
+Enter Any Number:y
+Sorry Invalid Input
+
+Enter Any Number:5
+Enter Any Number:
+Sorry Invalid Input
+
+Enter Any Number:t
+Sorry Invalid Input
+
+----------------------------------------
+Example: 5  ( KeyboardInterrupt )
+............................................
+try:
+    a=int(input("Enter Any Number:"))
+    b=int(input("Enter Any Number:"))
+    c=a/b
+    print("The result is:",c)
+except ValueError:
+    print("Sorry Invalid Input")
+except ZeroDivisionError:
+    print("b must not be ZERO")
+except KeyboardInterrupt:
+    print("You cancelled The Program")
+    
+o/p=
+Enter Any Number:9
+Enter Any Number:3
+The result is: 3.0
+
+-----------------------------------------
+The Except Clause with else :
+Syntax 2    
+-----------------------------------------
+NOTE----- 1. If try get executed successfully then except will not  come, only else will come.
+                2. If try get failure then except will be executed and else  will not
+.............................................
+try:
+     You Do Your Operations Here
+     - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+except Exception-1:
+     If there is Exception-1, then Execute this Block
+     - - - - - - - - - - - - - - - - - -- - - - - - -- - - - -
+else:
+     If there is no Exception then execute this block
+-----------------------------------------
+Example : 1  ( else )
+...................................
+try:
+    a=int(input("Enter Any Number:"))
+    b=int(input("Enter Any Number:"))
+    c=a/b
+    print("The result is:",c)
+except ValueError:
+    print("Sorry Invalid Input")
+except Exception as arg:
+    print("Error:",arg)
+else:
+    print("Welcome to Else Block")
+    print("It always executes with Try bLock")
+    
+o/p=
+Enter Any Number:5
+Enter Any Number:1
+The result is: 5.0
+Welcome to Else Block
+It always executes with Try bLock
+
+Enter Any Number:6
+Enter Any Number:0
+Error: division by zero
+
+Enter Any Number:6
+Enter Any Number:G
+Sorry Invalid Input
+--------------------------------
+Example: 2    ( else )
+...................................
+try:
+    a=int(input("Enter Any Number:"))
+    b=int(input("Enter Any Number:"))
+    c=a/b
+    print("The result is:",c)
+except ValueError:
+    print("Sorry Invalid Input")
+except Exception as arg:
+    print("Error:",arg)
+else:
+    print("Welcome to Else Block")
+    print("Other Computations")
+    print(a+b)
+    print(a-b)
+    print(a*b)
+    print(a/b)    
+
+o/p=
+Enter Any Number:9
+Enter Any Number:3
+The result is: 3.0
+Welcome to Else Block
+Other Computations
+12
+6
+27
+3.0
+
+Enter Any Number:8
+Enter Any Number:t
+Sorry Invalid Input
+
+Enter Any Number:12
+Enter Any Number:0
+Error: division by zero
+-----------------------------------------------
+The except Clause with No Exception:
+Syntax: 3
+----------------------------------------------
+try:
+     You Do Your Operations Here;
+     - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+     - - - - - - - - - - - - - - - - -- - - - - - - - 
+except Exception-1:
+     If there is any Exception, then Execute the Block
+     - - - - - - - - - - - - - - - - - -- - - - - - 
+     - - - --  --- - - - -- - - - - - - -- - - - - -  
+else:
+       If there is no Exception then execute this block
+------------------------------------------------------
+NOTE----( except : only one time we can use)
+              ( except besides something----we can use as many time as we want ) e.g.=except ValueError:  , except Exception as arg:
+.........................................................
+Example: 1   ( except )
+......................................
+try:
+    a=int(input("Enter Any Number:"))
+    b=int(input("Enter Any Number:"))
+    c=a/b
+    print("The result is:",c)
+except:
+    print("Sorry Invalid Input")
+else:
+    print("Welcome to Else Block")
+    print("Other Computations")
+    print("Addition is:",a+b)
+    print("Substraction is:",a-b)
+    print("Multiplication is:",a*b)
+    print("Division is:",a/b)    
+
+o/p=
+Enter Any Number:6
+Enter Any Number:3
+The result is: 2.0
+Welcome to Else Block
+Other Computations
+Addition is: 9
+Substraction is: 3
+Multiplication is: 18
+Division is: 2.0
+
+Enter Any Number:8
+Enter Any Number:t
+Sorry Invalid Input
+
+Enter Any Number:9
+Enter Any Number:0
+Sorry Invalid Input
+
+----------------------------------------------
+The try-finally clause:
+Syntax 4
+----------------------------------------------
+try:
+     You do ur operations here;
+     -- - - - - - - - - -  - - - - - -- - - - - 
+finally:
+      This will always be executed
+      - - - - - - - - - - - - - - - - - - - - - - 
+---------------------------------------------------
+NOTE------ 1. we can't use ELSE clause with finally clause
+	2. finally will execute always with try and except
+----------------------------------------------------
+Example: 1
+.........................
+try:
+    a=int(input("Enter Any Number:"))
+    b=int(input("Enter Any Number:"))
+    c=a/b
+    print("The result is:",c)
+except ValueError:
+    print("Invalid Input")
+except ZeroDivisionError:
+    print("b must not be ZERO")
+finally:
+    print("Finally always get executed")
+    print("Thank u")
+
+o/p=
+Enter Any Number:9
+Enter Any Number:3
+The result is: 3.0
+Finally always get executed
+Thank u
+
+Enter Any Number:6
+Enter Any Number:y
+Invalid Input
+Finally always get executed
+Thank u
+
+Enter Any Number:6
+Enter Any Number:0
+b must not be ZERO
+Finally always get executed
+Thank u
+
+Enter Any Number: t
+Invalid Input
+Finally always get executed
+Thank u
+
+------------------------------
+Example : 2
+...............................
+try:
+    a=int(input("Enter Any Number:"))
+    b=int(input("Enter Any Number:"))
+    c=a/b
+    print("The result is:",c)
+except:
+    print("Invalid Input")
+finally:
+    print("Finally always get executed")
+    print("Thank u")
+
+o/p=
+Enter Any Number:6
+Enter Any Number:4
+The result is: 1.5
+Finally always get executed
+Thank u
+
+Enter Any Number:6
+Enter Any Number:K
+Invalid Input
+Finally always get executed
+Thank u
+
+Enter Any Number:7
+Enter Any Number:0
+Invalid Input
+Finally always get executed
+Thank u
+
+raise ( throw ) keyword :
+----------------------------------------
+Ex:
+x=int(input("Enter any number:"))
+if x<=10:
+    raise ValueError('x should not be less than 10')
+else:
+    print("Great Value")
+    
+o/p=
+Enter any number:18
+Great Value
+
+Enter any number:7
+ValueError: x should not be less than 10
+
+Assertion  in PYTHON:
+--------------------------------------------
+Example : 1
+.....................
+assert 3+2==5#
+assert 3+6==9#
+assert 3+2==8#AssertionError
+
+Example : 2
+......................
+assert 3+2==5,'success'#
+assert 3+6==9,'success'#
+assert 3+2==8,'Invalid Operation'#AssertionError: Invalid Operation
+
+Asserts VS Try. . . . except :
+-------------------------------------------------
+Example : 1
+....................
+def Age_Vote(age):
+    assert age >= 18,"Sorry Unable to Vote"
+    print("Welcome to Vote")
+    print("Thanks for Voting")
+Age_Vote(18)
+Age_Vote(38)
+Age_Vote(17)
+
+o/p=
+Welcome to Vote
+Thanks for Voting
+
+Welcome to Vote
+Thanks for Voting
+
+AssertionError: Sorry Unable to Vote
+-------------------------
+Example : 2
+.........................
+def power(x,y):
+    assert x>0,"x must be +ve number not {0}"
+    assert y>0,"y must be +ve number not {0}"
+    return x**y
+print(power(3,2))#9
+print(power(1,1))#1
+print(power(2,0))AssertionError: y must be +ve number not {0}
+print(power(4,-1))#AssertionError: y must be +ve number not {0}
+
+Ignore Errors:
+Example 1:
+'''''''''''''''''''''
+try:
+    pass
+except:
+    pass
+else:
+    pass
+finally:
+    pass
+
+o/p= no output
+-------------------
+Example 2:
+'''''''''''''''''''
+try:
+    pass
+except:
+    print("Hello World")
+else:
+    print("Not World")
+finally:
+    print("Thank U")
+
+o/p=
+Not World
+Thank U
+-----------------------
+Example 3:
+'''''''''''''''''''
+try:
+    pass
+except:
+    print("Hello World")
+finally:
+    print("Thank U")
+     
+o/p=
+Thank U
+------------------------
+Example 4:
+''''''''''''''''''''
+try:
+    x=int(input("Enter Any Number:"))
+    y=int(input("Enter Any Number:"))
+    print("The Result is:",int(x/y))
+except:
+    pass
+    print("Error:Arithmatic Operation Ignored,Pass block")
+else:
+    print("Successfully Done")
+
+o/p=
+Enter Any Number:5
+Enter Any Number:6
+The Result is: 0
+Successfully Done
+
+Enter Any Number:8
+Enter Any Number:u
+Error:Arithmatic Operation Ignored,Pass block
+

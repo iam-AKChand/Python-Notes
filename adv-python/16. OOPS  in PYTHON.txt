@@ -1,0 +1,939 @@
+			Object  Oriented  Programming  System  (OOPS)
+
+Python Class :
+- - - - -  - - - - - - - - - - -- -  -- - - - - - 
+We can create class using these three methods ;
+
+#Example  [ after class name nothing declared ]
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+class Employee:
+    pass
+MyId=Employee()
+print(MyId)#<__main__.Employee object at 0x000002D3CF4E0E80>
+
+#Example  [ after class name parenthesis ( ) given ]
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+class Employee():
+    pass
+MyId=Employee()
+print(MyId)#<__main__.Employee object at 0x000002D3CF4E0E48>
+
+#Example  [ after class name parenthesis (object) given ]
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+class Employee(object):
+    pass
+MyId=Employee()
+print(MyId)#<__main__.Employee object at 0x000002D3CF4E0E80>
+- - - - - - - - - - - - - -  - - -  - 
+   self
+-------------------------------------- 
+Example [ with self ]
+''''''''''''''''''''''''''''''''''''''
+class Msg():
+#Method declaration
+    def wish(self):
+        print('Hello')
+        print('Thank you')
+#creating instance/reference for the class
+MM=Msg()
+#using instance/reference we are calling method
+MM.wish()
+
+o/p=
+Hello
+Thank you
+
+Example [ without self ]
+''''''''''''''''''''''''''''''''''''''''''''
+class Msg():
+#Method declaration
+    def wish():
+        print('Hello')
+        print('Thank you')
+#creating instance/reference for the class
+MM=Msg()
+#using instance/reference we are calling method
+MM.wish()
+
+o/p=
+TypeError: wish() takes 0 positional arguments but 1 was given
+
+Example [ we can use any name in place of self, but self z mostly recommended ]
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+class Msg():
+#Method declaration
+    def wish(hei):
+        print('Hello')
+        print('Thank you')
+#creating instance/reference for the class
+MM=Msg()
+#using instance/reference we are calling method
+MM.wish()
+
+o/p=
+Hello
+Thank you
+
+Example:
+''''''''''''''''
+class Exception_Class():
+    def Try_Except(self):
+        try:
+            x=int(input("Enter any Number:"))
+            y=int(input("Enter any Number:"))
+            z=x/y
+            print("The result is:",z)
+        except ValueError:
+            print("Invalid Input")
+        except ZeroDivisionError:
+            print("y must not be zero")
+        finally:
+            print("Finally block get executed successfully")
+EE=Exception_Class()
+EE.Try_Except()
+
+o/p=
+Enter any Number:5
+Enter any Number:1
+The result is: 5.0
+Finally block get executed successfully
+
+Enter any Number:0
+Enter any Number:4
+The result is: 0.0
+Finally block get executed successfully
+
+Enter any Number:9
+Enter any Number:0
+y must not be zero
+Finally block get executed successfully
+
+Enter any Number:
+Invalid Input
+Finally block get executed successful
+
+------------------------------------------------------------
+  __init__   [ Constructor / Initializer ]
+------------------------------------------------------------------
+Example : 1
+'''''''''''''''''''''
+class Hello():
+    def __init__(self):
+        print("Hello default constructor")
+        print("You are always first")
+    def GoodBye(self):
+        print("You are the next")
+        print("Good Bye all of you")
+HH=Hello()
+HH.GoodBye()
+
+o/p=
+Hello default constructor
+You are always first
+You are the next
+Good Bye all of you
+
+Example : 2
+''''''''''''''''''''
+class Hello():
+    def __init__(self,a,b):
+        print("Hello default constructor")
+        print("The Result is:",(a+b))
+    def GoodBye(self):
+        print("You are the next")
+        print("Good Bye all of you")
+HH=Hello(2,4)
+HH.GoodBye()
+
+o/p=
+Hello default constructor
+The Result is: 6
+You are the next
+Good Bye all of you
+
+Example : 3
+''''''''''''''''''''
+class Person():
+    def __init__(self,name):
+        self.name=name
+    def display(self):
+        print('Hello',self.name)
+        return
+MyObj=Person("PYTHON")
+MyObj.display()
+
+o/p=
+Hello PYTHON
+
+---------------------------------------------------------------
+Attributes :
+---------------------------------------------------------------
+1 . Built in Class Attributes :
+'''''''''''''''''''''''''''''''''''''''''''''''''
+Example
+'''''''''''''''
+class BuiltinAttrs():
+    """Welcome to Built-in Attributes.
+       It is DocString"""
+print(BuiltinAttrs.__dict__)#{'__module__': '__main__', '__doc__': 'Welcome to Built-in Attributes.\n       It is DocString', '__dict__': <attribute '__dict__' of 'BuiltinAttrs' objects>, '__weakref__': <attribute '__weakref__' of 'BuiltinAttrs' objects>}
+print(BuiltinAttrs.__doc__)#Welcome to Built-in Attributes.
+                                                   It is DocString
+print(BuiltinAttrs.__name__)#BuiltinAttrs
+print(BuiltinAttrs.__bases__)#(<class 'object'>,)
+print(BuiltinAttrs.__module__)#__main__
+
+Example
+'''''''''''''''
+class Employee():
+    empCount=0
+print(Employee.empCount)#0
+obj=Employee()
+print(obj.empCount)#0
+obj.newCount=30
+print(obj.newCount)#30
+
+Access  Modifiers
+''''''''''''''''''''''''''''''''
+1 .  Public ( name )
+'''''''''''''''''''''''''''''''''
+Example : 1
+''''''''''''''''''''
+class Attributes():
+    def __init__(self):
+        self.Public="Hello I am Public"
+AA=Attributes()
+print(AA.Public)#Hello I am Public
+
+Example : 2
+'''''''''''''''''''''
+class NiT():
+    def __init__(self):
+        self.Pub="Hello I am Public"
+Ob=NiT()
+print(Ob.Pub)#Hello I am Public
+Ob.Pub=Ob.Pub+'Can u Add me Public'
+print(Ob.Pub)#Hello I am PublicCan u Add me Public
+
+2 .  Protected ( _name)
+'''''''''''''''''''''''''''''''''''''''''
+Example : 1
+'''''''''''''''''''''
+class Attributes():
+    def __init__(self):
+        self.__Private="Hello I am Private class"
+AA=Attributes()
+print(AA.__Private)#Hello I am Protected class
+
+Example : 2
+'''''''''''''''''''''
+class NiT():
+    def __init__(self):
+        self._Pro="Hello I am Protected Class"
+Ob=NiT()
+print(Ob._Pro)#Hello I am Protected Class
+Ob._Pro=Ob._Pro+'Can u Add me Protected Class'
+print(Ob._Pro)#Hello I am Protected ClassCan u Add me Protected Class
+
+3 .  Private  ( _ _name )
+'''''''''''''''''''''''''''''''''''''''''
+Example : 1
+'''''''''''''''''''''
+#Example
+class Attributes():
+    def __init__(self):
+        self.__Private="Hello I am Private class"
+AA=Attributes()
+print(AA.__Private)#AttributeError: 'Attributes' object has no attribute '__Private'
+
+1 . Python  getattr( ) :
+  '''''''''''''''''''''''''''''''''''''
+#Example
+'''''''''''''''''''
+class Attribute():
+    Name="PYTHON"
+    ID=101
+AA=Attribute()
+Attr1=getattr(AA,'Name')
+print("Attribute is :",Attr1)#Attribute is : PYTHON
+Attr2=getattr(AA,'ID')
+print("Attribute is :",Attr2)#Attribute is : 101
+
+#Example
+'''''''''''''''''''
+class Attribute():
+    Name="PYTHON"
+    ID=101
+AA=Attribute()
+Attr3=getattr(AA,'Gen','Male')
+print("Attribute is :",Attr3)#Attribute is : Male
+
+2 . Python setattr ( ) :
+   ''''''''''''''''''''''''''''''''''
+#Example
+'''''''''''''''''
+class Attribute():
+    Name="PYTHON"
+    ID=101
+AA=Attribute()
+Attr1=getattr(AA,'Name','PYTHON')
+print("Attribute is :",Attr1)#Attribute is : PYTHON
+setattr(AA,'Name','JYTHON')
+Attr1=getattr(AA,'Name','PYTHON')
+print("Attribute is :",Attr1)#Attribute is : JYTHON
+
+3 . Python hasattr( ) :
+    ''''''''''''''''''''''''''''''''''
+#Example
+'''''''''''''''''''
+class Attribute():
+    Name="PYTHON"
+    ID=101
+AA=Attribute()
+print(hasattr(AA,'Name'))#True
+print(hasattr(AA,'name'))#False
+
+4 . Python delattr ( ) :
+    ''''''''''''''''''''''''''''''''''
+#Example
+'''''''''''''''''''
+class Attribute():
+    Name="PYTHON"
+    ID=101
+AA=Attribute()
+delattr(AA,'Name')#AttributeError: Name
+
+
+Class variables and Instance variables in Python
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+class NareshIT():
+    #Class level variable
+    Ins='Naresh i Technologies'
+    def __init__(self,sname,rollno,course):
+        #Instance variable
+        self.sname=sname
+        self.rollno=rollno
+        self.course=course
+    def Display_Stud_Details(self):
+        print('Name of the Institute is:',self.Ins)
+        print('Name of the Student is:',self.sname)
+        print('Rollno of the Student is:',self.rollno)
+        print('Name of the Course is:',self.course)
+#Craeting Instance of Class
+#Passing parameters/arguments for instance variables
+Std1=NareshIT('JOHN',101,'CSE')
+#Calling method
+Std1.Display_Stud_Details()
+Std2=NareshIT('ROBORT',104,'EEE')
+Std2.Display_Stud_Details()
+        
+o/p=
+Name of the Institute is: Naresh i Technologies
+Name of the Student is: JOHN
+Rollno of the Student is: 101
+Name of the Course is: CSE
+Name of the Institute is: Naresh i Technologies
+Name of the Student is: ROBORT
+Rollno of the Student is: 104
+Name of the Course is: EEE
+
+Static Method
+'''''''''''''''''''''''''''
+class Bank():
+    @staticmethod
+    def Banking(Attr):
+        print('Welcome to banking')
+        print('It is a static Method')
+        print('It can be called with class and instance')
+        print('Pass Attribute is:',Attr)
+BB=Bank()
+#Calling method using Instance
+BB.Banking('SBI')
+#Calling method using class
+Bank.Banking('ICICI')
+
+o/p=
+Welcome to banking
+It is a static Method
+It can be called with class and instance
+Pass Attribute is: SBI
+Welcome to banking
+It is a static Method
+It can be called with class and instance
+Pass Attribute is: ICICI
+
+PYTHON  DECORATORS
+''''''''''''''''''''''''''''''''''''''''''''
+Example 1 : 
+'''''''''''''''''''
+def Div(x,y):
+    return x/y
+print(Div(2,1))#2.0
+print(Div(1,2))@0.5
+print(Div(2,0))#ZeroDivisionError: division by zero
+
+Example  2 :   [ without using Decorator ]
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+def DivUpdate(func):
+    def Inner(a,b):
+        if b==0:
+            print('Sorry Unable to Compute')
+        else:
+            return func(a,b)
+    return Inner
+
+def Div(x,y):
+    return x/y
+print(Div(2,2))#1.0
+print(Div(2,0))#ZeroDivisionError: division by zero
+
+Example  3 :   [ with using Decorator ]
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+#Example
+def DivUpdate(func):
+    def Inner(a,b):
+        if b==0:
+            print('Sorry Unable to Compute')
+        else:
+            return func(a,b)
+    return Inner
+@DivUpdate
+def Div(x,y):
+    return x/y
+print(Div(2,2))#1.0
+print(Div(2,0))#Sorry Unable to Compute
+                            None
+print(Div(3,2))#1.5
+
+Explicit  Garbage COllection : 
+''''''''''''''''''''''''''''''''''''''''''''''''''''
+class Animal():
+    def Move(self):
+        pass
+class Dog():
+    def Sound(self):
+        print('Barking....!!!')
+class Cat():
+    def Sound(self):
+        print('Meewwww...!!!')
+    def __del__(self):
+        print("I am a Destroyer")
+        print("Donot call me")
+DD=Dog()
+DD.Sound()#Barking....!!!
+CC=Cat()#I am a Destroyer
+                  Donot call me
+CC.Sound()#Meewwww...!!!
+del CC#
+del DD#  
+
+Method Resolution Order ( M R O )
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Example 1 :
+'''''''''''''''''''
+class A():
+    def MyMethod(self):
+        print("I am in class A")
+class B():
+    pass
+class C(B,A):
+    pass
+def main():
+    Obj1=C()
+    Obj1.MyMethod()
+if __name__=="__main__":
+    main()
+
+o/p=
+I am in class A
+
+Example 2 :
+''''''''''''''''''''
+class A():
+    def MyMethod(self):
+        print("I am in class A")
+class B():
+    def MyMethod(self):
+        print("I am in class B")
+class C(B,A):
+    pass
+def main():
+    Obj1=C()
+    Obj1.MyMethod()
+if __name__=="__main__":
+    main()
+
+o/p=
+I am in class B
+
+Example 3 :
+''''''''''''''''''''
+class A():
+    def MyMethod(self):
+        print("I am in class A")
+class B():
+    def MyMethod(self):
+        print("I am in class B")
+class C(B,A):
+    def MyMethod(self):
+        print("I am in class C")
+def main():
+    Obj1=C()
+    Obj1.MyMethod()
+if __name__=="__main__":
+    main()
+
+o/p=
+I am in class C
+
+4 . Hirarchial  Inheritance :
+     '''''''''''''''''''''''''''''''''''''''''
+Example 1 :
+'''''''''''''''''''
+class Banker_RBI():
+    def RBI_Rules(self):
+        print("Banking sectors must follow me")
+class SBI_Ind(Banker_RBI):
+    def SBI_Rules(self):
+        print("Every customers must follow my rules")
+class ICICI_Ind(Banker_RBI):
+    def ICICI_Rules(self):
+        print("My all customers must follow me")
+class HDFC_Ind(Bankerclass Banker_RBI():
+    def RBI_Rules(self):
+        print("Banking sectors must follow me")
+HD=HDFC_Ind()
+HD.RBI_Rules()
+HD.HDFC_Rules()
+IC=ICICI_Ind()
+IC.RBI_Rules()
+IC.ICICI_Rules()
+SB=SBI_Ind()
+SB.RBI_Rules()
+SB.SBI_Rules()
+
+o/p=
+Banking sectors must follow me
+All customers must follow my rules
+Banking sectors must follow me
+My all customers must follow me
+Banking sectors must follow me
+Every customers must follow my rules
+
+5 . Hybrid Inheritance :
+   '''''''''''''''''''''''''''''''''''
+class A():
+    def MyMethod(self):
+        print("I am in class A")
+class B(A):
+    def MyMethod(self):
+        print("I am in class B")
+class C(A):
+    def MyMethod(self):
+        print("I am in class C")
+class D(C,B,A):
+    def MyMethod(self):
+        print("I am in class D")
+        A.MyMethod(self)
+        B.MyMethod(self)
+        C.MyMethod(self)
+def main():
+    Obj1=D()
+    Obj1.MyMethod()
+if __name__=="__main__":
+    main()
+
+o/p=
+I am in class D
+I am in class A
+I am in class B
+I am in class C
+
+6 . Diamond Inheritance : 
+     '''''''''''''''''''''''''''''''''''''''
+class A():
+    def MyMethod(self):
+        print("I am in class A")
+class B(A):
+    def MyMethod(self):
+        print("I am in class B")
+class C(A):
+    def MyMethod(self):
+        print("I am in class C")
+class D(C,B):
+    def MyMethod(self):
+        print("I am in class D")
+        A.MyMethod(self)
+        B.MyMethod(self)
+        C.MyMethod(self)
+def main():
+    Obj1=D()
+    Obj1.MyMethod()
+if __name__=="__main__":
+    main()
+
+o/p=
+I am in class D
+I am in class A
+I am in class B
+I am in class C
+
+7 . Diamond Death Issue :
+    ''''''''''''''''''''''''''''''''''''''''
+class A():
+    def MyMethod(self):
+        print("I am in class A")
+class B(A):
+    def MyMethod(self):
+        print("I am in class B")
+        A.MyMethod(self)
+class C(A):
+    def MyMethod(self):
+        print("I am in class C")
+        A.MyMethod(self)
+class D(C,B):
+    def MyMethod(self):
+        print("I am in class D")
+        A.MyMethod(self)
+        B.MyMethod(self)
+        C.MyMethod(self)
+def main():
+    Obj1=D()
+    Obj1.MyMethod()
+if __name__=="__main__":
+    main()
+
+o/p=
+I am in class D
+I am in class A
+I am in class B
+I am in class A
+I am in class C
+I am in class A
+
+Python Super Function :
+''''''''''''''''''''''''''''''''''''''''''
+class A():
+    def MyMethod(self):
+        print("I am in class A")
+class B(A):
+    def MyMethod(self):
+        print("I am in class B")
+        super().MyMethod()
+class C(A):
+    def MyMethod(self):
+        print("I am in class C")
+        super().MyMethod()
+class D(C,B):
+    def MyMethod(self):
+        print("I am in class D")
+        super().MyMethod()        
+def main():
+    Obj1=D()
+    Obj1.MyMethod()
+if __name__=="__main__":
+    main()
+
+o/p=
+I am in class D
+I am in class C
+I am in class B
+I am in class A
+
+__name__=='__main__'  [a special variable in python ]
+'''''''''''''''''''''''''''''''''''''''''''
+Example 1.1  [ save with MyPro1.py ]
+''''''''''''''''''''''
+def MyFun():
+    print("Welcome to main module")
+    print("It is a special variable")
+    print("Thanks A Lot")
+
+o/p=
+
+Example 1.2  [ save with MyPro2.py ]
+''''''''''''''''''''''
+import MyPro1
+MyPro1.MyFun()
+
+o/p=
+Welcome to main module
+It is a special variable
+Thanks A Lot
+
+Example 2.1   [ save with MyPro1.py ]
+''''''''''''''''''''''
+def MyFun():
+    print("Welcome to main module")
+    print("It is a special variable")
+    print("Thanks A Lot")
+    return()
+MyFun()
+
+o/p=
+Welcome to main module
+It is a special variable
+Thanks A Lot
+Welcome to main module
+It is a special variable
+Thanks A Lot
+
+Example 2.2  [ save with MyPro2.py ]
+'''''''''''''''''''''''
+import MyPro1
+MyPro1.MyFun()
+
+o/p=
+Welcome to main module
+It is a special variable
+Thanks A Lot
+
+Example 3.1  [ save with MyPro1.py ]
+''''''''''''''''''''''
+def MyFun():
+    print("Welcome to main module")
+    print("It is a special variable")
+    print("Thanks A Lot")
+    return()
+if __name__=="__main__":
+    MyFun()
+
+o/p=
+Welcome to main module
+It is a special variable
+Thanks A Lot
+
+Example 3.2  [ save with MyPro2.py ]
+'''''''''''''''''''''''
+import MyPro1
+MyPro1.MyFun()
+
+o/p=
+Welcome to main module
+It is a special variable
+Thanks A Lot
+
+
+
+		ENCAPSULATION
+---------------------------------------------------------------------------------------------------
+
+Example 1
+'''''''''''''''''''
+class NareshIT():
+    def __init__(self):
+        print("Hello default Constructor")
+        self.__x=100
+NI=NareshIT()
+NI.__x
+
+o/p=
+AttributeError: 'NareshIT' object has no attribute '__x'
+
+Example 2
+''''''''''''''''''''
+class NareshIT():
+    def __init__(self):
+        print("Hello default Constructor")
+        self.__x=100
+NI=NareshIT()
+print(NI._NareshIT__x)
+
+o/p=
+Hello default Constructor
+100
+
+NOTE = here   _NareshIT is Class with Protect access modifiers  and __x is the attribute ( variables declared inside the class) with Private access modifiers.
+But we can access Private methods using one underscore with class name NN._NareshIT__x().
+
+Example 3
+'''''''''''''''''''
+class Car():
+    def __init__(self):
+        self.__updatesoftware()
+    def Drive(self):
+        print("I am Driving")
+    def __updatesoftware(self):
+        print("Car software updated successfully")
+CC=Car()
+CC.Drive()
+CC.__init__()
+CC.__updatesoftware()#AttributeError: 'Car' object has no attribute '__updatesoftware'
+
+ o/p=
+Car software updated successfully
+I am Driving
+Car software updated successfully
+
+Example 1   [ using Private Methods and variales] 
+''''''''''''''''''
+class Car_Details():
+    __maxspeed=0
+    __name=""
+    def __init__(self):
+        self.__maxspeed=300
+        self.__name="SportsCar"
+    def Cardetails(self):
+        print("Car model is:",self.__name)
+        print("Car speed is:",self.__maxspeed)
+        print("Thank You")
+    def SetSpeed(self,speed):
+        self.__maxspeed=speed
+        print("Car current speed is:",__maxspeed)
+        print("Good Bye")
+CC=Car_Details()
+CC.Cardetails()
+
+o/p=
+Car model is: SportsCar
+Car speed is: 300
+Thank You
+
+
+POLYMORPHISM 
+''''''''''''''''''''''''''''''''
+1 . Dynamic  Polymorphism / Method  OVERRIDING
+     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Example 1 :
+''''''''''''''''''''
+class A():
+    def Display(self):
+        print("I am in Class A")
+class B(A):
+    pass
+obj=B()
+obj.Display()
+
+o/p=
+I am in Class A
+
+Example 2:
+'''''''''''''''''''
+class A():
+    def Display(self):
+        print("I am in Class A")
+class B(A):
+    def Display(self):
+        print("I am in Class B")
+obj=B()
+obj.Display()
+
+o/p=
+I am in Class B
+
+[ NOTE = In this example Child (class A) overrides with Parent (class B) . ]
+
+Example 3:
+'''''''''''''''''''
+class Father():
+    def FirstName(self):
+        print("Father's first name")
+        print("Write it first")
+    def LastName(self):
+        print("Father's last name")
+        print("Thank You")
+class Son(Father):
+    def FirstName(self):
+        print("Son's first name")
+        print("Good Bye")
+SS=Son()
+SS.FirstName()
+SS.LastName()
+
+FF=Father()
+FF.FirstName()
+FF.LastName()
+
+o/p=
+Son's first name
+Good Bye
+Father's last name
+Thank You
+
+Father's first name
+Write it first
+Father's last name
+Thank You
+
+2 . Static Polymorphism / Method OVERLOADING
+     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+class Ari_Computations():
+    def Add(self,a,b):
+        return(a+b)
+    def Add(self,a,b,c):
+        return(a+b+c)
+    def Add(self,a,b,c,d):
+        return(a+b+c-d)
+AA=Ari_Computations()
+print(AA.Add(1,2))
+print(AA.Add(1,2,3))
+print(AA.Add(1,2,3,4))
+
+o/p=
+TypeError: Add() missing 2 required positional arguments: 'c' and 'd'
+
+[  NOTE = Python doesnot support Method OverLoading. It is Dynamically Typed Lang  ]
+
+Duck Typing :
+''''''''''''''''''''''
+def MyCal(a,b):
+    return(a+b)
+print(MyCal(1,2))#3
+print(MyCal("HELLO","PYTHON"))#HELLOPYTHON
+print(MyCal(123,"PYTHON"))#TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+
+
+ABSTRACTION  [ Data Hiding ]
+''''''''''''''''''''''''''''
+class Animal():
+    def move():
+        pass
+class Human(Animal):
+    def move(self):
+        print("I can Walk and Run")
+class Snake(Animal):
+    def move(self):
+        print("I can Crawl only")
+def main():
+    h1=Human()
+    h1.move()
+    s1=Snake()
+    s1.move()
+if __name__=="__main__":
+    main()
+
+o/p=
+I can Walk and Run
+I can Crawl only
+
+Abstract Class and Abstract Method :
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#Example  [ using Abstract Class and Abstract Method ]
+from abc import ABC,abstract method
+class Animal(ABC):
+    @abstractmethod
+    def move():
+        pass
+class Human(Animal):
+    def move(self):
+        print("I can Walk and Run")
+class Snake(Animal):
+    def move(self):
+        print("I can Crawl only")
+def main():
+    A=Animal()
+    A.move()
+    h1=Human()
+    h1.move()
+    s1=Snake()
+    s1.move()
+if __name__=="__main__":
+    main()
+
+o/p=
+
+
+PYTHON  MULTITHREADING
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''
+

@@ -1,0 +1,138 @@
+-------------------------------------------------------------------------------------------------------------------------
+                           PYTHON  REGULAR EXPRESSION
+-------------------------------------------------------------------------------------------------------------------------
+Example 1  :
+''''''''''''''''''
+str1="MyName is Akash"
+print(str1.replace("Akash","Chiku"))
+o/p=
+MyName is Chiku
+
+Example 2  :
+'''''''''''''''''''
+str2="Main street is broad road"
+print(str2.replace("road","rd"))
+o/p=
+Main street is brd rd
+
+Example 3  :    ( output comes as a programmer thinks )
+'''''''''''''''''''
+print(str2[0:17]+str2[17:].replace("road","rd"))
+o/p=
+Main street is broad rd
+
+Various Methods of Regular Expression :
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+1. re.match( )  Method :   [it finds and match if patter occures at start of string]
+   '''''''''''''''''''''''''''''''''''''
+Example : 1
+'''''''''''''''''''''
+import re
+Line="Pet:Cat I like Pets"
+Mat=re.match(r"Pet:\w\w\w",Line)
+print(Mat)#<re.Match object; span=(0, 7), match='Pet:Cat'>
+
+Example : 2
+''''''''''''''''''''
+import re
+Line="Pet:Cat I like Pets"
+Mat=re.match(r"Pet:\w\w\w",Line)
+print(Mat.group(0))#Pet:Cat
+Mat=re.match(r"Pet:\w\w",Line)
+print(Mat.group(0))#Pet:Ca
+
+Example : 3
+''''''''''''''''''''
+import re
+Line="Pet:Cat I like Pets"
+Mat=re.match(r"Pet:\w\w\w",Line)
+print(Mat.group(0))#Pet:Cat
+print(Mat.start())#0
+print(Mat.end())#7
+
+Example : 4
+''''''''''''''''''''
+import re
+Line="I like Pets Pet:Cat"
+Mat=re.match(r"Pet:\w\w\w",Line)
+print(Mat.group(0))#AttributeError: 'NoneType' object has no attribute 'group'
+
+2. re.search( ) Method :    [searches for first occurance of RE pattern in string]
+    ''''''''''''''''''''''''''''''''''''
+Example : 1
+''''''''''''''''''''
+import re
+Line="Pet:Cat I like Pets"
+Mat=re.search(r"Pet:\w\w\w",Line)
+print(Mat.group(0))#Pet:Cat
+
+Example : 2
+''''''''''''''''''''
+import re
+Line="I like Pets Pet:Cat"
+Mat=re.search(r"Pet:\w\w\w",Line)
+print(Mat.group(0))#Pet:Cat
+
+Example : 3
+''''''''''''''''''''
+import re
+Line="I like Pet:Cat Pets"
+Mat=re.search(r"Pet:\w\w\w",Line)
+print(Mat.group(0))#Pet:Cat
+
+Example : 4
+''''''''''''''''''''
+import re
+Line="Pet:Cat I like Pets Pet:Cow I like Cows"
+Mat=re.search(r"Pet:\w\w\w",Line)
+print(Mat.group(0))#Pet:Cat
+print(Mat.group(1))#IndexError: no such group
+
+Example : 5
+''''''''''''''''''''
+import re
+Line="I like Pets Pet:Cow I like Cows"
+Mat=re.search(r"Pet:\w\w\w",Line)
+print(Mat.group(0))#Pet:Cow
+
+3. re.findall( ) Method :
+    '''''''''''''''''''''''''''''''''''
+Example : 1
+''''''''''''''''''''
+import re
+Line="Pet:Cat I like Pets Pet:Cow I like Cows"
+Mat=re.findall(r"Pet:\w\w\w",Line)
+print(Mat)#['Pet:Cat', 'Pet:Cow']
+
+Example : 1
+''''''''''''''''''''
+import re
+Line="Pet:Cat I like Pets Pet:Cow I like Cows\Pet:Cat I like Pets Pet:Cow I like Cows"
+Mat=re.findall(r"Pet:\w\w\w",Line)
+print(Mat)#['Pet:Cat', 'Pet:Cow', 'Pet:Cat', 'Pet:Cow']
+
+4. re.split( ) Method :   [by default patterns replaced with comma characters]
+    ''''''''''''''''''''''''''''''''
+Example : 1
+''''''''''''''''''''
+import re
+Line="Pet:Cat I like Pets Pet:Cow I like Cows"
+Mat=re.split(r"Pet:\w\w\w",Line)
+print(Mat)#['', ' I like Pets ', ' I like Cows']
+
+Example : 2
+''''''''''''''''''''
+import re
+Line="Pet:Cat I like Pets Pet:Cow I like Cows\Pet:Cat I like Pets Pet:Cow I like Cows"
+Mat=re.split(r"Pet:\w\w\w",Line)
+print(Mat)#['', ' I like Pets ', ' I like Cows\\', ' I like Pets ', ' I like Cows']
+
+5. re.sub( ) Method :
+    ''''''''''''''''''''''''''''''
+Example : 1
+''''''''''''''''''''
+import re
+Emails="ksraju@abc.com,nareshit@nit.com,rama@yahoo.com,hello@hotmail.com"
+print(Emails)#ksraju@abc.com,nareshit@nit.com,rama@yahoo.com,hello@hotmail.com
+Pattern=re.sub(r"@\w+","@gmail",Emails)
+print(Pattern)#ksraju@gmail.com,nareshit@gmail.com,rama@gmail.com,hello@gmail.com

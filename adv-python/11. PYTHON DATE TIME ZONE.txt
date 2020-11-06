@@ -1,0 +1,125 @@
+		PYTHON  DATA & TIME
+-------------------------------------------------------------------------------------------------------------------------
+#Tick
+import time
+ticks=time.time()
+print("since 12:00am,january1,1970",ticks)#since 12:00am,january1,1970 1554134695.3917778
+print("12:00am,january1,1970",ticks)#12:00am,january1,1970 1554208563.223208
+
+#DST (Daylight Saving Time)
+Ex:  1
+import time
+It=time.localtime(time.time())
+print(It)#time.struct_time(tm_year=2019, tm_mon=4, tm_mday=1, tm_hour=21, tm_min=34, tm_sec=55, tm_wday=0, tm_yday=91, tm_isdst=0)
+
+Ex:  2
+import time
+x=time.localtime(time.time())
+print(x)#time.struct_time(tm_year=2019, tm_mon=4, tm_mday=2, tm_hour=18, tm_min=13, tm_sec=16, tm_wday=1, tm_yday=92, tm_isdst=0)
+
+#How to use of Date & Date Time class
+Ex  :1
+from datetime import date
+from datetime import datetime
+td=date.today()
+print(td)#2019-04-02
+da=td.day
+print(da)#2
+mon=td.month
+print(mon)#4
+yr=td.year
+print(yr)#2019
+wkday=td.weekday
+print(wkday())#1
+x=datetime.now()
+print(x)#2019-04-02 18:27:58.406787
+
+Ex  :2
+from datetime import date
+td=date.today()
+print(td)#2019-04-02
+print(td.day)#2
+print(td.month)#4
+print(td.year)#2019
+print(td.weekday())#1
+
+#How to Format time output
+Ex:  1
+from datetime import datetime
+x=datetime.now()
+print(x)#2019-04-02 18:42:20.641202
+print(x.strftime("%a"))#Tue
+print(x.strftime("%A"))#Tuesday
+print(x.strftime("%b"))#Apr
+print(x.strftime("%B"))#April
+print(x.strftime("%c"))#Tue Apr  2 18:42:20 2019
+print(x.strftime("%C"))#20
+print(x.strftime("%d"))#02
+print(x.strftime("%D"))#04/02/19
+print(x.strftime("%y,%Y"))#19,2019
+print(x.strftime("%y::%Y"))#19::2019
+
+#Time Delta Object 
+Ex : 1
+from datetime import timedelta
+print(timedelta(days=365,hours=8,minutes=23))#365 days, 8:23:00
+print(timedelta(days=340,hours=12,minutes=56,seconds=47))#340 days, 12:56:47
+print(timedelta(days=234,hours=38,minutes=29,seconds=16))#235 days, 14:29:16
+print(timedelta(days=365,hours=28,minutes=70,seconds=89))#366 days, 5:11:29
+print(timedelta(minutes=50,days=125,hours=16,seconds=46))#125 days, 16:50:46
+
+#Python Calendar Module:
+1 . interweekdays() method:
+Ex:
+import calendar
+cal=calendar.Calendar(firstweekday=0)
+for x in cal.iterweekdays():
+    print(x)
+
+2 . intermonthdates() method:
+Ex:
+import calendar
+cal=calendar.Calendar(firstweekday=1)
+for x in cal.itermonthdates(2019,5):
+    print(x)
+
+3. itermonthdays2 ( ) method:
+import calendar
+cal=calendar.Calendar(firstweekday=1)
+for x in cal.itermonthdays2(2019,4):
+    print(x)
+
+4. Python text Calendar:
+import calendar
+cal=calendar.TextCalendar(firstweekday=0)
+print(cal.formatyear(2019,3))
+print(cal.formatyear(2019))
+print(cal.formatyear(2012,5,4))
+print(cal.formatyear(2022,7))
+
+5. Python HTML Calendar Class:
+import calendar
+cal=calendar.HTMLCalendar(firstweekday=0)
+print(cal.formatyear(2019))
+
+6. isleap() method
+import calendar
+print(calendar.isleap(2022))#False
+print(calendar.isleap(2016))#True
+print(calendar.isleap(2870))#False
+print(calendar.isleap(1920))#True
+
+7. leapdays() method
+import calendar
+print(calendar.leapdays(2000,2008))#2
+print(calendar.leapdays(2004,2013))#3
+print(calendar.leapdays(2050,2060))#2
+print(calendar.leapdays(2020,2022))#1
+
+8. weekheader() method
+import calendar
+print(calendar.weekheader(1))#M T W T F S S
+print(calendar.weekheader(2))#Mo Tu We Th Fr Sa Su
+print(calendar.weekheader(3))#Mon Tue Wed Thu Fri Sat Sun
+print(calendar.weekheader(9))#  Monday   Tuesday  Wednesday  Thursday   Friday   Saturday   Sunday 
+

@@ -1,0 +1,547 @@
+	PYTHON   FUNCTIONS
+
+Function parts nd design:
+
+#defination of Function
+#Function Declaration
+def First_Fun():#name of Fun
+#Body of Func
+#Called part of Func
+#pass argument
+    print("Welcome to PYTHON")#Welcome to PYTHON
+    print("Thank You")#Thank You
+    #end of func
+    return
+#calling part of func
+#pass parameter
+First_Fun()
+
+Convert addition of 2 nos script into Function
+#Example:
+def Computations_cal():
+    x=int(input("Enter any number:"))
+    y=int(input("Enter any number:"))
+    z=x+y
+    print("The result is:",z)
+Computations_cal()
+Computations_cal()
+
+#outout
+Enter any number:3
+Enter any number:5
+The result is: 8
+
+Enter any number:6
+Enter any number:3
+The result is: 9
+
+Function Return Statement:
+
+#example
+def Computations_cal(a,b):
+    return(a+b)
+Computations_cal(1,2)
+
+#example
+def Computations_cal(a,b):
+    return(a+b)
+print(Computations_cal(1,2))#3
+
+#example
+def Computations_cal(a,b):
+    print(a+b)#3
+Computations_cal(1,2)
+
+#example
+def Computations_cal(a,b):
+    print(a+b)#3
+    return()
+Computations_cal(1,2)
+
+#example
+def Computations_cal(a,b):
+    print(a+b)#3
+    return()
+print(Computations_cal(1,2))#()
+
+#example
+def Computations_cal(a,b):
+    print(a+b)#3
+    return
+print(Computations_cal(1,2))#None
+
+Another example:
+#example
+def Fun_Cal():
+    x=10;y=20
+    return(x+y)
+        
+#example
+def Fun_Cal():
+    x=10;y=20
+    print(x+y)#30    
+Fun_Cal()
+
+#example
+def Fun_Cal():
+    x=10;y=20
+    print(x+y)#30
+    return()    
+Fun_Cal()
+
+#example
+def Fun_Cal():
+    x=10;y=20
+    print(x+y)#30
+    return()    
+print(Fun_Cal())#()
+
+#example
+def Fun_Cal():
+    x=10;y=20
+    print(x+y)#30
+    return    
+print(Fun_Cal())#None
+
+
+1/// Positional Arguments:
+Ex:
+def Pos_Args(a,b,c):
+    print(a,b,c)
+    print(b,c)
+    print(c)
+    return()
+Pos_Args(1,2,3)
+Pos_Args("PYTHON","ML","DL")
+Pos_Args(1,"ML",4)
+Pos_Args(1,2,'a')
+Pos_Args(1,2)#TypeError: Pos_Args() missing 1 required positional argument: 'c'
+
+2///  Keyword Arguments:
+Ex:
+def Keyword_Args(a,b,c):
+    print(a,b,c)
+    print(b,c)
+    print(c)
+    return()
+Keyword_Args(c=1,b=3,a=4)
+Keyword_Args(a=1,c=3,b=4)
+Keyword_Args(b=1,a=3,c=4)
+Keyword_Args(1,3,c=4)
+Keyword_Args(c=1,3,4)#SyntaxError: positional argument follows keyword argument
+
+3///  Default Argument:
+Ex:
+def Default_Args(a=10,b=20,c=30):
+    print(a,b,c)
+    print(b,c)
+    print(c)
+    return()
+Default_Args()
+Default_Args(15)
+Default_Args(25,50)
+Default_Args(13,67,90)
+Default_Args(a=1,b=2,c=3)
+Default_Args(1,b=2,c=3)
+Default_Args(a=1,b=2,3)#SyntaxError: positional argument follows keyword argument
+
+Example:
+def Marks(bigdata,hadoop=38,spark=20):
+    print('Marks in:'BigData is-',bigdata,'Hadoop is-',hadoop,'Spark is-',spark')
+Marks(89,70)
+Marks(45,spark=56)
+Marks(bigdata=11,hadoop=22,spark=56)
+
+4///  Arbitrary  Arguments:
+Ex:
+def Arbi_Args(*arr):
+    for val in arr:
+        print(val)
+Arbi_Args()#no output
+Arbi_Args(1)#1
+Arbi_Args(1,2,3,3,5,6,7,12)#1 1 2 3 3 5 6 7 12
+
+Ex:
+def Arbitrary_Args(*a):
+    for value in a:
+        print(value)
+    return()
+Arbitrary_Args()
+Arbitrary_Args("Hello",1,'m')
+
+Local  &  Global Variables :
+Ex:1
+b=200
+def Local_Scope():
+    a=100
+    print(a+b)
+    return
+Local_Scope()
+o/p=300
+
+EX:2
+a=200;b=300
+def Global_Scope():
+    print(a+b)
+    return
+Global_Scope()
+o/p=500
+
+Ex:3
+a=10;b=20
+print(id(a))
+def Global_Scope_One():
+    print(a+b)
+    return
+def Global_Scope_Two():
+    a=30;b=40
+    print(id(a))
+    print(a-b)
+    return
+Global_Scope_One()
+Global_Scope_Two()
+
+Ex:4
+y=200
+def Local_Scope():
+    x=100
+    print(x+y)
+    return()
+def Global_Scope():
+    xy=300
+    print(xy-y)
+    return()
+Local_Scope()
+Global_Scope()
+
+Ex:4
+total=0;
+def Sum(arg1+arg2):
+    total=arg1+arg2
+    print("Inside the function Local total:"total)
+    return total;
+Sum(20,10)
+print("Outside function Global total:"total)
+
+Global Keyword:
+Ex:
+def Scope_Fun1():
+    a=10;b=20
+    print(a-b)
+    return()
+def Scope_Fun2():
+    print(a+b)
+    return()
+def Scope_Fun3():
+    global a,b
+    print(a*b)
+    return()
+Scope_Fun1()
+Scope_Fun2()
+Scope_Fun3()
+
+Ex:
+def Local_Scope():
+    global x
+    x=100
+    y=400
+    print(x+y)
+    return()
+def Global_Scope():
+    uv=300
+    print(uv-x)
+    return()
+Local_Scope()
+Global_Scope()
+
+Ex:
+global a
+def Local_Scope():
+    x=100
+    y=400
+    print(x+y)
+    return()
+def Global_Scope():
+    uv=300
+    print(uv-x)
+    return()
+Local_Scope()
+Global_Scope()
+
+Nested  Functions:
+
+Example: 1
+def Outer_Function():
+    print("Hei Outer Function")
+    def Inner_Function():
+        print("Hello Inner Function")
+    Inner_Function()
+Outer_Function()
+o/p=
+Hei Outer Function
+Hello Inner Function
+
+Example: 2
+def Outer():
+    x=1
+    def Inner(a):
+        print(a+x)
+    Inner(2)
+Outer()
+o/p=3
+
+#Example: 3
+def Outer():
+    x=2
+    def Inner(a):
+        x=6
+        print(a+x)
+    print(x)
+    Inner(2)
+Outer()
+o/p=
+2
+8
+
+Example: 4
+def Outer():
+    x=1
+    def Inner(a):
+        x=4
+        print(a+x)
+    print(x)
+    Inner(2)
+Outer()
+o/p=
+1
+6
+
+Example: 5
+
+def Outer():
+    x=1;y=4
+    def Inner(a):
+        print(a+y)
+    Inner(4)
+Outer()
+o/p=
+8
+
+NON-LOCAL:
+Example: 1
+def Outer_Fun():
+    a=10
+    print("Outer Value is:",a)
+    def Inner_Fun():
+        a=20
+        print("Inner Value is:",a)
+    Inner_Fun()
+Outer_Fun()
+o/p=
+Outer Value is: 10
+Inner Value is: 20
+
+Example:2
+def Outer_Fun():
+    a=10
+    print("Outer value is:",a)
+    def Inner_Fun():
+        nonlocal a
+        a=20
+        print("Inner Value is:",a)
+    Inner_Fun()
+Outer_Fun()
+o/p=
+Outer value is: 10
+Inner Value is: 20
+
+Example: 3
+def Outer_Fun():
+    a=10
+    def Inner_Fun():
+        a=20
+        print("Inner Value is:",a)
+    Inner_Fun()
+    print("Outer value is:",a)
+Outer_Fun()
+o/p=
+Inner Value is: 20
+Outer value is: 10
+
+Example: 4
+def Outer_Fun():
+    a=10
+    def Inner_Fun():
+        nonlocal a
+        a=20
+        print("Inner Value is:",a)
+    Inner_Fun()
+    print("Outer value is:",a)
+Outer_Fun()
+o/p=
+Inner Value is: 20
+Outer value is: 20
+
+Recursive Function:
+
+Example:
+def Factorial_Number(n):
+    if n==1:
+        return 1
+    else:
+        return n*Factorial_Number(n-1)
+print(Factorial_Number(1))
+print(Factorial_Number(4))
+print(Factorial_Number(8))
+
+Anonymous  Fun / Lambda Fun / Implicit Fun
+
+#Anonymous Function
+x=lambda x:x**2;print(x(2))#4
+
+#Anonymous Function
+Avg=lambda x,y:(x+y)/2;print(Avg(2,5))#3.5
+
+#Normal Function
+def Avg(x,y):
+    print((x+y)/2)#4.0
+    return()
+Avg(3,5)
+
+#Anonymous Function
+Max=lambda x,y:x if x>y else y
+print(Max(3,5))#5
+
+#Normal Function
+def Max(x,y):
+    if x>y:
+        return x
+    else:
+        return y
+print(Max(3,5))#5
+
+#Anonymous Function
+Min=lambda x,y:x if x<y else y
+print(Min(3,5))#3
+
+#Normal Function
+def Min(x,y):
+    if x<y:
+        return x
+    else:
+        return y
+print(Min(3,5))#3
+
+
+1/// Map Function ( ):
+Example:
+n=[2,3,4,5,6,7,8]
+print(list(map(lambda x:x**2,n)))#[4, 9, 16, 25, 36, 49, 64]
+old_list=[2,3,4,5,6,7,8]
+print(old_list)#[2, 3, 4, 5, 6, 7, 8]
+new_list=list(map(lambda x:x**3,old_list))
+print(new_list)#[8, 27, 64, 125, 216, 343, 512]
+n1=(9,4,5,3,1,5)
+print(n1)#(9, 4, 5, 3, 1, 5)
+n2=tuple(map(lambda x:x**2,n1))
+print(n2)#(81, 16, 25, 9, 1, 25)
+
+Example:
+n=[2,3,5,6,7]
+print(type(n))#<class 'list'>
+print(list(map(lambda x:x**2,n)))#[4, 9, 25, 36, 49]
+
+Example:
+OldList=[2,3,4,5,6,7]
+print(type(OldList))#<class 'list'>
+print(OldList)#[4, 9, 25, 36, 49]
+NewList=tuple(map(lambda x:x**2,OldList))#[2, 3, 4, 5, 6, 7]
+print(type(NewList))#<class 'tuple'>
+print(NewList)#(4, 9, 16, 25, 36, 49)
+
+Example:
+OldTuple=(2,3,4,5,6,7)
+print(type(OldTuple))#<class 'tuple>
+print(OldTuple)#(4, 9, 25, 36, 49)
+NewTuple=list(map(lambda x:x**2,OldList))#(2, 3, 4, 5, 6, 7)
+print(type(NewTuple))#<class 'list'>
+print(NewTuple)#[4, 9, 16, 25, 36, 49]
+
+2/// filter ( ) Function:
+Example:
+n=[2,3,4,5,6,7,8]
+print(list(filter(lambda x:x>4,n)))#[5, 6, 7, 8]
+old_list=[2,3,4,5,6,7,8]
+new_list=list(filter(lambda x:x<5,old_list))
+print(new_list)#[2, 3, 4]
+n1=(2,3,4,5,6,7,8)
+print(n1)#(2, 3, 4, 5, 6, 7, 8)
+n2=tuple(filter(lambda x:x%2==0,n1))
+print(n2)#(2, 4, 6, 8)
+n2=tuple(filter(lambda x:x%2!=0,n1))
+print(n2)#(3, 5, 7)
+
+Example:
+OldList=[3,4,5,6,7,8,9]
+print(list(filter(lambda x:x>5,OldList)))#[6, 7, 8, 9]
+print(list(filter(lambda x:x<6,OldList)))#[3, 4, 5]
+print(list(filter(lambda x:x%2==0,OldList)))#[4, 6, 8]
+print(list(filter(lambda x:x%2!=0,OldList)))#[3, 5, 7, 9]
+
+3///  reduce ( ) function:
+import functools
+n=[3,5,7,8]
+print(functools.reduce(lambda x,y:x+y,n))#23
+print(functools.reduce(lambda x,y:x-y,n))#-17
+print(functools.reduce(lambda x,y:x*y,n))#840
+
+DOCSTRING:
+
+#Ex: 1
+def square_cal_compute(a):
+    """Using this function
+     we can calculate 
+     square computations"""
+    print("DocStrings are documentation strings")
+    return(a**2)
+print(square_cal_compute(2))#DocStrings are 			documentation strings   4
+print(square_cal_compute(4))#DocStrings are 			documentation strings  16
+print(square_cal_compute(6))#DocStrings are 			documentation strings  36
+
+#Ex:  2
+def square_cal_compute(a):
+    """Using this function
+    we can calculate 
+    square computations"""
+    print(__doc__)
+    print(square_cal_compute.__doc__)
+    return(a**2)
+print(square_cal_compute(3))
+o/p=
+Using this function
+    we can calculate 
+    square computations
+9
+
+#Ex:  3 (to display DocString)
+def MyCal(a,b):
+    """It is related to computations 
+    for arithmatical problems"""
+    print(MyCal.__doc__)
+    return(a+b)
+print(MyCal(3,6))
+
+o/p=
+It is related to computations 
+    for arithmatical problems
+9
+
+#Ex:  4
+def MyCal(a,b):
+    """it is DocString example
+    easy to learn"""
+    print(a-b)#9
+    print(a*b)#2
+    print(a/b)#15
+    return(a+b)#1.6666666666667
+MyCal(5,3)

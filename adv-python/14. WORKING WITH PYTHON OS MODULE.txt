@@ -1,0 +1,93 @@
+-------------------------------------------------------------------------------------------------------------------------
+                          WORKING WITH PYTHON OS MODULE
+-------------------------------------------------------------------------------------------------------------------------
+Example :  ( Creating a CSV File )
+''''''''''''''''    '''''''''''''''''''''''''''''''''''''
+with open("MyFile.csv",mode='w',encoding='utf-8')as AK:
+    a=csv.writer(AK,delimiter=",")
+    data=[['STOCK','SALES','PRICE'],
+          ['100','50','120$']
+          ['120','90','150$']
+          ['200','150','130$']]
+    a.writerows(data)
+    print("CSV File created Successfully")
+
+o/p=
+SyntaxError: unexpected EOF while parsing
+
+Create a CSV File :   ( Using try...except....finally )
+'''''''''''''''''''''''''''''''    ''''''''''''''''''''''''''''''''''''''''''''''''''''
+import csv
+try:
+    with open("MyFile.csv",mode='w',encoding='utf-8')as FP:
+        a=csv.writer(FP,delimiter=",")
+        data=[['STOCK','SALES','PRICE'],
+          ['100','50','120$'],
+          ['120','90','150$'],
+          ['200','150','130$']]
+        a.writerows(data)
+        print("CSV File created Successfully")
+except IOError:
+    print("CSV file unable to create")
+finally:
+    print("Finally Block get executed")
+
+o/p=
+STOCK,SALES,PRICE
+
+100,50,120$
+
+120,90,150$
+
+200,150,130$
+
+Append a CSV File :
+''''''''''''''''''''''''''''''''
+try:
+    with open("MyFile.csv",mode='a',encoding='utf-8')as FP:
+        a=csv.writer(FP,delimiter=",")
+        data=[['240','180','170$']]
+        a.writerows(data)
+        print("CSV File created Successfully")
+except IOError:
+    print("CSV file unable to create")
+finally:
+    print("Finally Block get executed")
+
+o/p=
+STOCK,SALES,PRICE
+
+100,50,120$
+
+120,90,150$
+
+200,150,130$
+
+240,180,170$
+
+Read a CSV File :
+''''''''''''''''''''''''''''
+try:
+    with open("MyFile.csv",mode='r',encoding='utf-8')as FP:
+        for line in FP:
+            print(line,end='')
+        print("CSV File created Successfully")
+except IOError:
+    print("CSV file unable to create")
+finally:
+    print("Finally Block get executed")
+
+o/p=
+STOCK,SALES,PRICE
+
+100,50,120$
+
+120,90,150$
+
+200,150,130$
+
+240,180,170$
+
+CSV File created Successfully
+Finally Block get executed
+    
