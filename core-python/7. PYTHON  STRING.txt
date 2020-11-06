@@ -1,0 +1,124 @@
+	            PYTHON     STRING
+
+Ex:
+first="First"
+second="Second"
+fullstr=first+" "+second
+print(fullstr)#First Second
+
+Ex:
+print('AkasH'*3)#AkasHAkasHAkasH
+print('PythoN'*2)#PythoNPythoN
+print('IoT'*4)#IoTIoTIoTIoT
+
+1////  Assign and Re-assign
+
+Ex:
+PyStr="PYTHON"####Assigning
+print(PyStr)#PYTHON
+PyStr="python"####Re-assigning
+print(PyStr)#python
+
+2////  Multiple Assignment
+
+Ex:
+a=b=c=10
+print(a)#10
+print(b)#10
+print(c)#10
+print(a,b,c)#10 10 10
+print(a,b,c,sep="*")#10*10*10
+
+3///  String indexing
+
+Ex:
+str1="Naresh i Technologies"
+print(str1[0])#N
+print(str1[5])#h
+print(str1[3])#e
+print(str1[-2])#e
+print(str1[-4])#g
+print(str1[-13])#space
+
+4///  Unicode string
+
+Ex:
+PyStr=r"PYTHON"
+print(PyStr)#PYTHON
+PyStr=u"PYTHON"
+print(PyStr)#PYTHON
+PyStr=u"be good"
+print(PyStr)#be good
+
+5///  String Slicing
+
+Ex:
+PyStr="PYTHON"
+print(PyStr[0:1])#P
+print(PyStr[1:4])#YTH
+print(PyStr[2:4])#TH
+print(PyStr[1:3])#YT
+print(PyStr[4:6])#ON
+
+Python String Libraries
+Built-in string Method
+1///  Capitalize()   Method:
+
+Ex:
+PyStr="hello PYTHON"
+print(PyStr)#hello PYTHON
+print(PyStr.capitalize())#Hello python
+
+2///  string isdigit() Method:
+
+Ex:
+PyStr="123456"
+print(PyStr)#123456
+print(PyStr.isdigit())#True
+print(PyStr.isalpha())#False
+
+3///   len() Function:
+
+Ex:
+PyStr="Hello"
+print(len(PyStr))#5
+
+PyStr="124557#846"
+print(len(PyStr))#10
+
+4///  join() method:
+
+Ex:
+Mask='$$$$'
+seq=('98')
+print(Mask.join(seq))#9$$$$8
+
+Mask='$$$$'
+seq=('98','122')
+print(Mask.join(seq))#98$$$$122
+
+Mask='$$$$'
+seq=('98','###','102')
+print(Mask.join(seq))#98$$$$###$$$$102
+
+5///  string replace() Method:
+
+Ex:
+PyStr='Python is a lang'
+print(PyStr)#Python is a lang
+print(PyStr.replace('is','z'))#Python z a lang
+
+PyStr='Python is is is a lang'
+print(PyStr.replace('is','z',1))#Python z is is a lang
+print(PyStr.replace('is','z',2))#Python z z is a lang
+print(PyStr.replace('is','z',3))#Python z z z a lang
+
+6///  zfill() Method:
+Ex:
+PyStr='PYTHON'
+print(PyStr)#PYTHON
+print(PyStr.zfill(10))#0000PYTHON
+
+PyStr='AI'
+print(PyStr)#AI
+print(PyStr.zfill(10))#00000000AI

@@ -1,0 +1,112 @@
+PYTHON  FUNCTIONS() / TYPE  CASTING
+
+1///    int(x[,base]):
+print(int(1234))	#1234
+print(int("100",2))	#4
+print(int("1001",2))	#9
+print(int('25',8))	#21
+print(int("677",8))	#447
+
+2///    bool(value):
+PyNum=20
+print(type(PyNum)) #<type 'int'>
+print(PyNum) #20
+PyBool=bool(PyNum) 
+print(type(PyBool)) #<type 'bool'>
+print(PyBool) #True
+
+PyNum=0
+print(type(PyNum)) #<type 'int'>
+print(PyNum) #0
+PyBool=bool(PyNum) 
+print(type(PyBool)) #<type 'bool'>
+print(PyBool) #False
+
+3///   float(value):
+PyNum=30
+print(type(PyNum)) #<type 'int'>
+print(PyNum) #30
+PyFloat=float(PyNum) 
+print(type(PyFloat)) #<type 'float'>
+print(PyFloat) #30.0
+
+4///   str(value):
+PyNum=30
+print(type(PyNum)) #<type 'int'>
+print(PyNum) #30
+PyStr=str(PyNum) 
+print(type(PyStr)) #<type 'str'>
+print(PyStr) #30
+
+5///   list():
+
+PyStr="PYTHON"
+print(type(PyStr)) #<type 'str'>
+print(PyStr) #PYTHON
+PyList=list(PyStr) 
+print(type(PyList)) #<type 'list'>
+print(PyList) #['P', 'Y', 'T', 'H', 'O', 'N']
+
+6///   tuple():
+PyStr="PYTHON"
+print(type(PyStr)) #<type 'str'>
+print(PyStr) #PYTHON
+PyTuple=tuple(PyStr) 
+print(type(PyTuple)) #<type 'tuple'>
+print(PyTuple) #('P', 'Y', 'T', 'H', 'O', 'N')
+
+7///   set():
+PyStr="PYTHON"
+print(type(PyStr)) #<type 'str'>
+print(PyStr) #PYTHON
+PySet=set(PyStr) 
+print(type(PySet)) #<type 'set'>
+print(PySet) #{'P', 'Y', 'T', 'H', 'O', 'N'}
+
+8///   dict():
+PyTuple=((1,"PYTHON"),(2,"DL"),(3,"MI"),(4,"AI"),(5,"IoT"))
+print(type(PyTuple)) #<type 'tuple'>
+print(PyTuple) #((1, 'PYTHON'), (2, 'DL'), (3, 'MI'), (4, 'AI'), (5, 'IoT'))
+PyDict=dict(PyTuple) 
+print(type(PyDict)) #<type 'dict'>
+print(PyDict) #{1: 'PYTHON', 2: 'DL', 3: 'MI', 4: 'AI', 5: 'IoT'}
+
+9///   ord():
+print(ord('a'))#97
+print(ord('S'))#83
+print(ord(' '))#32
+print(ord('_'))#95
+print(ord(('%')))#37
+print(ord('3'))#51
+
+10/// chr(i):
+print(type('a'))#97
+print(ord('S'))#83
+print(ord(' '))#32
+print(ord('_'))#95
+print(ord(('%')))#37
+print(ord('3'))#51
+
+11/// complex():
+a=1
+print(type(a))#<type 'int'>
+print(a)#1
+b=complex(a)#
+print(type(b))#<type 'complex'>
+print(b)#<type 'complex'>
+
+STRING FORMATING OPERATER:-
+
+print("%s is good one in IT"%("NareshIT"))#NareshIT is good one in IT
+print("%d Years of experience"%(20))#20 Years of experience
+print("%s is IT Training Ins,%d years of   Experience"%("NareshIT",20))
+#NareshIT is IT Training Ins,20 years of Experience
+
+The Fractions Module:-
+
+from fractions import Fraction
+print(Fraction(2.5))#5/2
+print(Fraction(10.5))#21/2
+print(Fraction(50.5))#101/2
+print(Fraction(500.5))#1001/2
+

@@ -1,0 +1,132 @@
+PYTHON  OPERATORS
+1/// Arithmatic operators
++,   -,   *,   /,   //,   **
+Ex:
+>>> 2/3
+0.6666666666666666
+>>> 2//3
+0
+>>> 81//9
+9
+>>> 81/9
+9.0
+
+2/// Comparision Operator
+==   ,  !=  ,<  ,>  , <=  ,>=
+Ex:
+>>> x=2
+>>> y=7
+>>> x==y
+False
+>>> x!=y
+True
+>>> x>y
+False
+>>> x<y
+True
+>>> x>=y
+False
+
+3///  Assignment Operator
+=  , +=  , -=  ,*=  , /=  , %=  , **=  , //=
+>>> a=4
+>>> a+=3
+>>> a
+7
+>>> a-=4
+>>> a
+3
+>>> a/=3
+>>> a
+1.0
+>>> a*=9
+>>> a
+9.0
+>>> a**=2
+>>> a
+81.0
+>>> a//=4
+>>> a
+20.0
+
+4///   Logical Operator (Boolean)
+and logical AND, or logical OR, not logical NOT
+Ex:
+A=True;B=False
+print(A and B)#True
+print(A or B)#True
+print(not B)#True
+print(not A)#False
+
+5///  Membership Operator
+in ==> True, if value is found in the sequence
+not in ==> True, if value is not found in the sequence
+Ex:
+PyStr="PYTHON"
+print('P' in PyStr)#True
+print('P' not in PyStr)#False
+print('y' in PyStr)#False
+print('N' not in PyStr)#False
+print('o' not in PyStr)#True
+print('T' in PyStr)#True
+
+6///  Identity Operators
+is ==> True, if operands are identical
+is not ==> True, if the operands are not identical
+Ex:
+A=B=[1,2,3,4,5]
+C=[1,2,3,4]
+print(A is B)#True
+print(B is A)#True
+print(C is not A)#True
+print(A is not C)#True
+print(A is C)#False
+print(B is not C)#True
+
+Difference btwn "is" vs "==" in PYTHON :
+Ex:
+A=B=[1,2,3,4,5,6]
+C=[1,2,3,4,5]
+print(A==C)#False
+print(A==B)#True
+print(A is not C)#True
+print(A is C)#False
+print(B is A)#True
+print(A is not B)#False
+
+Ex:
+A=[1,2,3,4,5,6]
+B=A
+print(B)#[1, 2, 3, 4, 5, 6]
+print(A is B)#True
+print(A==B)#True
+C=list(A)
+print(C)#[1, 2, 3, 4, 5, 6]
+print(B is A)#True
+print(A==B)#True
+
+7///  Bitwise Operators
+& ,  | ,  ^  , ~  , >> , <<
+@  Bitwise AND(&)         {1  &  1 = 1   and rest all  0}
+ a=10;b=20
+print(a & b) #0
+a=28;b=48
+print(a & b) #16
+a=9;b=65
+print(a & b) #1
+
+@   Bitwise OR(|)
+a=10;b=20
+print(a | b) #30
+a=28;b=48
+print(a | b) #60
+a=9;b=65
+print(a | b) #73
+
+@  Bitwise XOR(^)
+a=10;b=20
+print(a ^ b) #30
+a=28;b=48
+print(a ^ b) #44
+a=9;b=65
+print(a ^ b) #72

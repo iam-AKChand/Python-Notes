@@ -1,0 +1,139 @@
+		DICTIONARY
+
+Types of Dictionaries:
+#Empty Dict
+PyDict={}
+print(type(PyDict))#<class 'dict'>
+print(PyDict)#{}
+
+#Dict with int values
+PyDict={1:"PY",2:"DL",3:"ML",4:"AI"}
+print(type(PyDict))#<class 'dict'>
+print(PyDict)#{1: 'PY', 2: 'DL', 3: 'ML', 4: 'AI'}
+
+#Dict with float keys
+PyDict={1.3:"PY",2.1:"DL",3.8:"ML",4.3:"AI"}
+print(type(PyDict))#<class 'dict'>
+print(PyDict)#{1.3: 'PY', 2.1: 'DL', 3.8: 'ML', 4.3: 'AI'}
+
+#Dict with string keys
+PyDict={"PY":1,"DL":2,"ML":3,"AI":4}
+print(type(PyDict))#<class 'dict'>
+print(PyDict)#{'PY': 1, 'DL': 2, 'ML': 3, 'AI': 4}
+
+#Dict with mixed keys
+PyDict={1:"PY","DL":2,3.5:"ML",4:"AI"}
+print(type(PyDict))#<class 'dict'>
+print(PyDict)#{1: 'PY', 'DL': 2, 3.5: 'ML', 4: 'AI'}
+
+
+Add key / value to Dictionary
+Ex:
+PyDict={}
+print(PyDict)
+PyDict[1]="PYTHON"
+print(PyDict)#{1: 'PYTHON'}
+PyDict[2]="ML"
+print(PyDict)#{1: 'PYTHON', 2: 'ML'}
+
+Comparing List & Dictionary
+Ex:1
+PyDict=dict()
+print(PyDict)#{}
+PyDict[1]="Hello"
+PyDict[2]="Bye"
+print(PyDict)#{1: 'Hello', 2: 'Bye'}
+
+Ex:2
+PyList=list()
+PyList.append(1)
+print(PyList)#[1]
+PyList.append(2)
+print(PyList)#[1, 2]
+
+Python  Dictionary Methods:
+
+1/// clear ( ):
+PyDict={1:"ONE",2:"TWO",3:"THREE"}
+print(PyDict)#{1: 'ONE', 2: 'TWO', 3: 'THREE'}
+PyDict.clear()
+print(PyDict)#{}
+
+2/// copy ( ) :
+PyDict={1:"ONE",2:"TWO",3:"THREE"}
+print(PyDict)#{1: 'ONE', 2: 'TWO', 3: 'THREE'}
+print(PyDict.copy())#{1: 'ONE', 2: 'TWO', 3: 'THREE'}
+
+3/// fromkeys ( ) :
+PyKeys={'s','c','r','y'}
+print(PyKeys)#{'c', 'y', 's', 'r'}
+consonants=dict.fromkeys(PyKeys)
+print(consonants)#{'c': None, 'y': None, 's': None, 'r': None}
+value='ALPHA'
+consonants=dict.fromkeys(PyKeys,value)
+print(consonants)#{'c': 'ALPHA', 'y': 'ALPHA', 's': 'ALPHA', 'r': 'ALPHA'}
+
+4///  get ( ):
+PyDict={1:"ONE",2:"TWO",3:"THREE"}
+print(PyDict)#
+print(PyDict.get(2))#Two
+print(PyDict.get(1))#ONE
+print(PyDict.get(5,"FIVE"))#FIVE
+
+5///  items ( ):
+PyDict={1:"ONE",2:"TWO",3:"THREE"}
+print(PyDict)#
+print(PyDict.items())#dict_items([(1, 'ONE'), (2, 'TWO'), (3, 'THREE')])
+
+6/// update ( ):
+PyDict1={1:"One",2:"Three",3:"Two"}
+print(PyDict1)#{1: 'One', 2: 'Three', 3: 'Two'}
+PyDict2={2:"Two",3:"Three"}
+print(PyDict2)#{2: 'Two', 3: 'Three'}
+PyDict1.update(PyDict2)
+print(PyDict1)#{1: 'One', 2: 'Two', 3: 'Three'}
+
+7/// keys ( ):
+Number={1:'One',2:'Three',3:'Two'}
+print(Number)#{1: 'One', 2: 'Three', 3: 'Two'}
+print(Number.keys())#dict_keys([1, 2, 3])
+
+
+Number={'One':1,'Three':3,'Two':2}
+print(Number)#{'One': 1, 'Three': 3, 'Two': 2}
+print(Number.keys())#dict_keys(['One', 'Three', 'Two'])
+
+8/// values ( ):
+Number={1:'One',2:'Three',3:'Two'}
+print(Number)#{1: 'One', 2: 'Three', 3: 'Two'}
+print(Number.values())#dict_values(['One', 'Three', 'Two'])
+
+Number={'One':1,'Three':3,'Two':2}
+print(Number)#{'One': 1, 'Three': 3, 'Two': 2}
+print(Number.values())#dict_values([1, 3, 2])
+
+9/// pop ( ):
+Number={1:'One',2:'Three',3:'Two'}
+print(Number)#{1: 'One', 2: 'Three', 3: 'Two'}
+Number.pop(1)
+print(Number)#{2: 'Three', 3: 'Two'}
+
+Number={'One':1,'Three':3,'Two':2}
+print(Number)#
+Number.pop('Two')
+print(Number)#{'One': 1, 'Three': 3}
+
+10/// popitem ( ):
+
+Number={'One':1,'Three':3,'Two':2}
+print(Number)#
+Number.popitem()
+print(Number)#{'One': 1, 'Three': 3}
+Number.popitem()
+print(Number)#{'One': 1}
+
+Other Dict Operation:
+squares={1:23,3:45,2:33,6:41,7:34}
+print(1 in squares)#True
+print(9 not in squares)#True
+print(23 in squares)#False

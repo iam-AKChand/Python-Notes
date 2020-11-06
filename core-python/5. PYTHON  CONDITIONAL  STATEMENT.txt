@@ -1,0 +1,197 @@
+PYTHON CONTROL STRUCTURE
+	1. Sequential Control Structure
+	2. Conditional / Selection Control Stru
+	3. Looping / Iterative Control Stru
+
+1. Sequential Control Structure:
+print("First Line")
+print("Second Line")
+print("Third Line")
+
+2. Conditional / Selection Control Structure :  ( if Statement )
+Ex: 1
+x=int(input("Enter Any Number:")
+if x>0:
+    print("Positive Number",x)
+    print("Thank U")
+    
+Ex: 2
+x=10
+if x>0:
+    print("Positive Number",x)
+    print("Thank U")
+    
+
+2///   if....else Statement :
+       ''''''''''''''''''''''''''''''''''''
+Ex:
+x=1
+if x>0:
+    print("+ve")
+else:
+    print("-ve")
+
+Ex:
+x=int(input("Enter Any Number:"))
+if x>0:
+    print("+ve")
+else:
+    print("-ve")
+
+Ex:
+x=int(input("Enter any number:"))
+if x>0:
+    print("+ve")
+if x<0:
+    print("-ve") 
+if x==0:
+    print("zeros")
+    
+Ex:
+x=int(input("enter any number:"))
+if x%2==0:
+    print("EVEN number")
+else:
+    print("ODD number")    
+
+3///     if....elif...if statement(Multiway Conditions)
+         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Ex:1
+x=int(input("enter any number:"0))
+if x>0:
+    print("+ve")
+elif x<0:
+    print("-ve")
+else:
+    print("zero")
+
+Ex:2
+Marks=int(input("Enter valid marks:"))
+if Marks >= 90 and Marks <= 100:
+    print("Grade is A+")
+elif Marks >= 80 and Marks < 90:
+    print("Grade is A")
+elif Marks >= 70 and Marks < 80:
+    print("Grade is B+")
+elif Marks >= 60 and Marks < 70:
+    print("Grade is B")
+elif Marks >= 50 and Marks < 60:
+    print("Grade is C")
+elif Marks >= 40 and Marks < 50:
+    print("JUST PASS")
+else:
+    print("FAILED/INVALID MARKS")
+
+4///   nested if statement
+Ex:1
+x=int(input("enter any number:"))
+if x>=0:
+    if x==0:
+        print("zero")
+    else:
+        print("+ve")
+else:
+    print("-ve")
+
+Ex:2
+x=int(input("enter any number:"))
+if x<=0:
+    if x==0:
+        print("zero")
+    else:
+        print("-ve")
+else:
+    print("+ve")
+
+Ex:3
+x=int(input("enter any number:"))
+if x!=0:
+    if x>0:
+        print("+ve")
+    else:
+        print("-ve")
+else:
+    print("zero")
+
+Ex:4
+x=int(input("enter any number:"))
+if x!=0:
+    if x<0:
+        print("-ve")
+    else:
+        print("+ve")
+else:
+    print("zero")
+
+Ex:5
+x=int(input("enter any number:"))
+if x<=0:
+    if x!=0:
+        print("-ve")
+    else:
+        print("zero")
+else:
+    print("+ve")
+
+Ex:6
+x=int(input("enter any number:"))
+if x==0:
+    print("zero")
+else:
+    if x>0:
+        print("+ve")
+    else:
+        print("-ve")
+
+Ex: (Leap year nd Common year)
+
+Year=int(input("enter a valid four digit year:"))
+if Year%4==0:
+    if Year%100==0:
+        if Year%400==0:
+            print("leap year")
+        else:
+            print("common year")
+    else:
+        print("leap year")
+else:
+    print("common year")        
+
+Ex: (Mark and Grade Indentations)
+
+Marks=int(input("enter valid marks:"))
+if Marks>=90 and Marks<=100:
+    print("Grade is A+")
+else:
+    if Marks>=80 and Marks<90:
+        print("Grade is A")
+    else:
+        if Marks>=70 and Marks<80:
+            print("Grade is B+")
+        else:
+            if Marks>=60 and Marks<70:
+                print("Grade is C")
+            else:
+                if Marks>=50 and Marks<60:
+                    print("Grade is D")
+                else:
+                    if Marks>=40 and Marks<50:
+                        print("just pass")
+                    else:
+                        print("failed")
+      
+Working with PYTHON -ve condition:
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Ex:
+x=int(input("enter any number:"))
+if not x>0:
+    print("-ve number")
+else:
+    print("+ve number")
+
+Ex:
+x=int(input("enter any number:"))
+if not x==60:
+    print("value of x different from 60")
+else:
+    print("value of x is equal to 60")

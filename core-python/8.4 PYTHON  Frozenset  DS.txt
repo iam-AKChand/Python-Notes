@@ -1,0 +1,16 @@
+		FROZENSET
+
+Different Methods:
+Ex:
+A=frozenset([1,2,3,4])
+print(A)#frozenset({1, 2, 3, 4})
+B=frozenset([4,5,6,7])
+print(B)#frozenset({4, 5, 6, 7})
+print(A.copy())#frozenset({1, 2, 3, 4})
+print(A.difference(B))#frozenset({1, 2, 3})
+print(A.intersection(B))#frozenset({4})
+print(A.isdisjoint(B))#False
+print(A.issubset(B))#False
+print(A.issuperset(B))#False
+print(A.symmetric_difference(B))#frozenset({1, 2, 3, 5, 6, 7})
+print(A.union(B))#frozenset({1, 2, 3, 4, 5, 6, 7})

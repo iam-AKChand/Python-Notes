@@ -1,0 +1,139 @@
+PYTHON MATH Module
+1///  abs():-
+
+print(abs(-1))#1
+print(abs(1))#1
+print(abs(-10))#10
+print(abs(10))#10
+
+
+2///  ceil() method:     (always returns forward round value)
+
+import math
+print(math.ceil(123.73))#124.0
+print(math.ceil(-123.43))#-123.0
+print(math.ceil(369.509))#370.0
+print(math.ceil(-120.335))#-120.0
+
+3///  Python Number floor() method:    (always returns backword round value)
+
+import math
+print(math.floor(123.73))#123.0
+print(math.floor(-123.43))#-124.0
+print(math.floor(369.509))#369.0
+print(math.floor(-120.335))#-121.0
+
+4///  math.fabs(x):       (returns absolute value)
+
+import math
+print(math.fabs(1))#1.0
+print(math.fabs(-10))#10.0
+print(math.fabs(369))#369.0
+print(math.fabs(-120))#120.0
+
+5///  math.factorial(x)	(error comes if x value becomes -ve nos)
+
+import math
+print(math.factorial(3))#6
+print(math.factorial(5))#120
+print(math.factorial(2))#4
+print(math.factorial(4))#24
+
+6///  math.fsum(iterable)
+
+import math
+print(math.fsum((1,2,3,4,5,6)))#21.0
+print(math.fsum({1,2,3,4,5,6}))#21.0
+print(math.fsum([1,2,3,4,5,6]))#21.0
+
+7///  pow() Method:	 	(value of x to the power y)
+
+import math
+print(math.pow(2,3))#8.0
+print(math.pow(3,4))#81.0
+print(math.pow(5,3))#125.0
+print(math.pow(10,3))#1000.0
+
+8///  Python Number round() function	(returns x rounded to n digits from decimal point)
+
+print(round(1234.547,2))#1234.55
+print(round(1234.56733,3))#1234.567
+print(round(1234.567,1))#1234.6
+print(round(111.236,2))#111.24
+
+9///  sqrt() Method 		(returns square root of x for x>0)
+
+import math
+print(math.sqrt(2))#1.41421356237
+print(math.sqrt(7))#2.64575131106
+print(math.sqrt(100))#10.0
+print(math.sqrt(33))#5.74456264654
+
+PYTHON RANDOM MODULES
+1///  random() method:
+import random
+print(random.random())#0.761686203982
+print(random.random())#0.90104418774
+print(random.random())#0.268504848027
+print(random.random())#0.800551181444
+
+2///   Generating Random ints between x and y
+import random
+print(random.randint(1,10))#8
+print(random.randint(10,20))#10
+print(random.randint(30,50))#43
+print(random.randint(100,200))#142
+	
+3///   randrange():	(LHS include, RHS excludes)
+import random
+print(random.randrange(1,10))#9
+print(random.randrange(1,20))#13
+print(random.randrange(20,50))#26
+print(random.randrange(100,1000))#229
+
+4///   Generating Random Floats:
+import random
+print(random.uniform(1,10))#3.52125663006
+print(random.uniform(1,10))#9.8536903172
+print(random.uniform(1,10))#7.84834766995
+print(random.uniform(1,10))#8.03915787416
+
+5///   Picking A Random Element From a List
+import random
+print(random.choice([1,2,3,4,5,6,7,8,9,10]))#4
+print(random.choice([1,2,3,4,5,6,7,8,9,10]))#10
+print(random.choice([1,2,3,4,5,6,7,8,9,10]))#7
+print(random.choice([1,2,3,4,5,6,7,8,9,10]))#8
+
+6///   Picking n Random Samples from a list of Elements
+import random
+x=[1,2,3,4,5,6,7,8,9,10]
+print(random.sample(x,2))#[3, 4]
+print(random.sample(x,4))#[4, 9, 6, 3]
+print(random.sample(x,1))#[9]
+print(random.sample(x,6))#[9, 10, 8, 5, 7, 1]
+
+7///   Randomizing a List of Elements
+import random
+x=[1,2,3,4,5,6,7,8,9,10]
+random.shuffle(x)
+print(x)#[4, 6, 1, 2, 10, 9, 3, 8, 5, 7]
+random.shuffle(x)
+print(x)#[10, 2, 5, 4, 6, 1, 3, 8, 7, 9]
+random.shuffle(x)
+print(x)#[7, 2, 6, 1, 5, 3, 4, 10, 9, 8]
+
+8///   The SECRETS module
+
+import secrets
+print(secrets.token_hex())
+print(secrets.token_hex(8))
+print(secrets.token_hex(16))
+print(secrets.token_bytes())
+print(secrets.token_bytes(8))
+print(secrets.token_bytes(16))
+print(secrets.token_urlsafe())
+print(secrets.token_urlsafe(8))
+print(secrets.token_urlsafe(16))
+
+

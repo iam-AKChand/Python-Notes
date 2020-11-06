@@ -1,0 +1,223 @@
+	        PYTHON  TUPLE  DS
+
+#creating Empty Tuple:
+my_tuple=()
+print(type(my_tuple))#<class 'tuple'>
+print(my_tuple)#()
+
+#creating Tuplehaving Integers
+my_tuple=(1,2,3,4)
+print(type(my_tuple))#<class 'tuple'>
+print(my_tuple)#(1, 2, 3, 4)
+
+#creating Tuple with mixed datatypes
+my_tuple=(1,2,3,4,"Hello")
+print(type(my_tuple))#<class 'tuple'>
+print(my_tuple)#(1, 2, 3, 4, 'Hello')
+
+#creating nested Tuple
+my_tuple=((10,20,30),(1,2,3,4),"Hello")
+print(type(my_tuple))#<class 'tuple'>
+print(my_tuple)#((10, 20, 30), (1, 2, 3, 4), 'Hello')
+
+#Tuple Packing
+my_tuple=1,2,3,4,"Hello"
+print(type(my_tuple))#<class 'tuple'>
+print(my_tuple)#(1, 2, 3, 4, 'Hello')
+
+#Tuple  Un-Packing
+a,b,c=my_tuple
+print(a)
+print(b)
+print(c)#NameError: name 'b' is not defined
+
+Example:
+my_tuple=("Data Structure")
+print(type(my_tuple))#<class 'str'>
+
+my_tuple="Data Structure"
+print(type(my_tuple))#<class 'tuple'>
+
+PyData=(1,2,3,[4,5],6,7)
+print(PyData)#(1, 2, 3, [4, 5], 6, 7)
+print(PyData[0])#1
+print(PyData[3])#[4, 5]
+print(PyData[3][1])#5
+
+TUPLE with Slice Operator:
+Ex:
+tuplez=(1,2,4,3,5,6,5,9,8,7)
+x=tuplez[2:6]
+print(x)#(4, 3, 5, 6)
+y=tuplez[:]
+print(y)#(1, 2, 4, 3, 5, 6, 5, 9, 8, 7)
+z=tuplez[5:]
+print(z)#(6, 5, 9, 8, 7)
+z=tuplez[:4]
+print(z)#(1, 2, 4, 3)
+b=tuplez[-8:-2]
+print(b)#(4, 3, 5, 6, 5, 9)
+
+Ex:
+tuplez=(tuple("DATA SCIENCE"))
+print(tuplez)#('D', 'A', 'T', 'A', ' ', 'S', 'C', 'I', 'E', 'N', 'C', 'E')
+x=tuplez[2:9:2]
+print(x)#('T', ' ', 'C', 'E')
+y=tuplez[::4]
+print(y)#('D', ' ', 'E')
+z=tuplez[9:2:-3]
+print(z)#('N', 'C', 'A')
+
+Python Tuple Method:
+Count ( ) method:
+Ex:
+tuplez=2,4,5,7,5,7,4,1,7,9,8
+print(tuplez)#(2, 4, 5, 7, 5, 7, 4, 1, 7, 9, 8)
+count=tuplez.count(4)
+print(count)#2
+count=tuplez.count(7)
+print(count)#3
+
+Index ( ) Method:
+Ex:
+tuplez=tuple("index tuple")
+print(tuplez)#('i', 'n', 'd', 'e', 'x', ' ', 't', 'u', 'p', 'l', 'e')
+index=tuplez.index("p")
+print(index)#8
+index=tuplez.index("e")
+print(index)#3
+
+Adding Elements in a Tuple:
+Ex: process1
+PyTuple=(1,2,3,4,5)
+print(PyTuple)#(1, 2, 3, 4, 5)
+PyTuple=PyTuple+(6,)
+print(PyTuple)#(1, 2, 3, 4, 5, 6)
+PyTuple=PyTuple+(6)
+print(PyTuple)#TypeError: can only concatenate tuple (not "int") to tuple
+
+Ex: process 2
+PyTuple=(1,2,3,4,5)
+print(PyTuple)#(1, 2, 3, 4, 5)
+PyList=list(PyTuple)
+PyList.append(6)
+PyTuple=tuple(PyList)
+print(PyTuple)#(1, 2, 3, 4, 5, 6)
+
+Delete items from a tuple:
+Ex:
+PyTuple=(1,2,3,4,5)
+print(PyTuple)#(1, 2, 3, 4, 5)
+PyList=list(PyTuple)
+PyList.remove(4)
+PyTuple=tuple(PyList)
+print(PyTuple)#(1, 2, 3, 5)
+
+Built-in Functions with Tuples:
+1/// all( ):
+all True		True
+all Fales		False
+one T, others F	False
+one F, others T	False
+Empty Iterable	True
+
+s=(1,2,3,4,5)
+print(all(s))#True
+
+s=(0,1,3,6,7)
+print(all(s))#False
+
+s=(0,False)
+print(all(s))#False
+
+s=(0,False,7)
+print(all(s))#False
+
+s=()
+print(all(s))#True
+
+2/// any( ):
+
+all True		True
+all Fales		False
+one T, others F	True
+one F, others T	True
+Empty Iterable	False
+
+Ex:
+s=(1,2,3,4,5)
+print(any(s))#True
+
+s=(0,1,3,6,7)
+print(any(s))#True
+
+s=(0,False)
+print(any(s))#False
+
+s=(0,False,7)
+print(any(s))#True
+
+s=()
+print(any(s))#False
+
+3///  enumerate ( ) Functions:
+Data with enumerate:
+Ex:
+PyData=("Data","BigData","ML","DL","AI","IoT")
+print(PyData)#('Data', 'BigData', 'ML', 'DL', 'AI', 'IoT')
+EData=enumerate(PyData)
+print(EData)#<enumerate object at 0x000001FC6F6A0120>
+print(tuple(EData))#((0, 'Data'), (1, 'BigData'), (2, 'ML'), (3, 'DL'), (4, 'AI'), (5, 'IoT'))
+EData=enumerate(PyData,300)
+print(tuple(EData))#((300, 'Data'), (301, 'BigData'), (302, 'ML'), (303, 'DL'), (304, 'AI'), (305, 'IoT'))
+
+4///  len( ) Function:
+PyTuple=(1,2,3,4,5)
+print(len(PyTuple))#5
+
+5/// max ( ):
+PyTuple=(1,8,11,4,5,9,7)
+print(max(PyTuple))#11
+PyTuple=('h','e','l','l','p','A','Z')
+print(max(PyTuple))#p
+
+6/// min ( ):
+PyTuple=(1,8,11,4,5,9,7)
+print(min(PyTuple))#1
+PyTuple=('h','e','l','l','p','A','Z')
+print(min(PyTuple))#A
+
+7/// sum ( ):
+PyTuple=(1,8,11,4,5,9,7)
+print(sum(PyTuple))#45
+PyTuple=(3,5,1,2,0,6)
+print(sum(PyTuple))#17
+
+
+Line Chart (PLOT DIAGRAM)
+Ex:
+import matplotlib.pyplot as plt
+x=(1,2,3,6,8,11,16,19,21,26,29,32,39,40,14)
+plt.plot(x)
+plt.xlabel("Time")
+plt.ylabel("Price")
+plt.show()
+
+Ex:
+import matplotlib.pyplot as plt
+x=(1,2,3,6,8,11,16,19,21,26,29,32,39,40,14)
+plt.plot(x,'ro')
+plt.xlabel("Time")
+plt.ylabel("Price")
+plt.show()
+
+Ex
+import matplotlib.pyplot as plt
+x=(1,2,3,6,8,11,16,19,21,26,29,32,39,40,14)
+plt.plot(x,'ro-')
+plt.xlabel("Time")
+plt.ylabel("Price")
+plt.show()
+
+
+
